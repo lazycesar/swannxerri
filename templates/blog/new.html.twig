@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel article{% endblock %}
+
+{% block body %}
+    <h1>Ajout d'un nouvel article</h1>
+
+    {{ include('blog/_form.html.twig') }}
+
+    <a href="{{ path('blog_index') }}">Retour à la liste</a>
+{% endblock %}
