@@ -2,28 +2,26 @@
 
 {% block body %}
 
-<form action="{{ path('login') }}" method="post">
+
+<form class="form-login" action="{{ path('login') }}" method="post">
+    <div class="form-group">
     <label for="username">Nom d'utilisateur:</label>
     {# L'underscore est indispensable pour le name / Mécanique de Symfony #}
-    <input type="text" id="username" name="_username" value="{{ last_username }}">
-
+    <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}">
     <label for="password">Mot de passe:</label>
-    <input type="password" id="password" name="_password">
-
-   <input type="hidden" name="_csrf_token"
-        value="{{ csrf_token('authenticate') }}">
+    <input type="password" class="form-control" id="password" name="_password">
+    <input type="hidden" class="form-control" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
     {#
         If you want to control the URL the user
         is redirected to on success (more details below)
         <input type="hidden" name="_target_path" value="/account" />
     #}
-
-    <button type="submit">Se connecter</button>
+    <button type="submit" class="btn btn-primary mt-3" >Se connecter</button>
 
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
+    </div>
 </form>
 
 {% endblock %}
