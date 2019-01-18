@@ -1,6 +1,7 @@
 # Installation Swann Xerri site
 
-### Après chaque création de branche ou clonage
+## Après chaque création de branche ou clonage
+
 ### Install Composer vendor
 
 ```sh
