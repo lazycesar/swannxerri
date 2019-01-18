@@ -1,9 +1,23 @@
-# swannxerri
+# Installation Swann Xerri site
 
-après chaque création de branche ou clonage :
+### Après chaque création de branche ou clonage
+### Install Composer vendor
 
--   composer install
+```sh
+composer install
+```
 
--   retélécharger ckeditor assets
-    php bin/console ckeditor:install
-    php bin/console assets:install public
+### Installer ckeditor assets
+
+```sh
+  php bin/console ckeditor:install
+  php bin/console assets:install public
+```
+
+### Create Database
+
+```sh
+php bin/console doctrine:database:create
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+```
