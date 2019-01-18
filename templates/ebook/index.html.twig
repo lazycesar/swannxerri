@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ebook index{% endblock %}
+
+{% block body %}
+    <h1>Ebook index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ebook in ebooks %}
+            <tr>
+                <td>{{ ebook.id }}</td>
+                <td>{{ ebook.email }}</td>
+                <td>
+                    <a href="{{ path('ebook_show', {'id': ebook.id}) }}">show</a>
+                    <a href="{{ path('ebook_edit', {'id': ebook.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('ebook_new') }}">Create new</a>
+{% endblock %}
