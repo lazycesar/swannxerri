@@ -51,8 +51,7 @@ class ContactFormController extends AbstractController
                     $body,
                     'text/html' 
                     // text/plain ne permet pas l'utilisation du HTML !
-                )
-                ->attach(\Swift_Attachment::fromPath('assets/ebook/test-ebook.pdf'));
+                );
 
             $mailer->send($message);
             // return $this->redirectToRoute('contact');
