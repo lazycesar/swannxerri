@@ -2,6 +2,10 @@
 
 {% block title %}Nouvel article{% endblock %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ absolute_url(asset('assets/css-admin/blog-new.css')) }}">
+{% endblock %}
+
 {% block body %}
     <h1>Ajout d'un nouvel article</h1>
 
