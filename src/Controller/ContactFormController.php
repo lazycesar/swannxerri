@@ -40,17 +40,15 @@ class ContactFormController extends AbstractController
             $entityManager->persist($contactForm);
             $entityManager->flush();
 
-            $body = "<body style='text-align:center'><h1 style='color:red'>Merci d'avoir téléchargé mon ebook !</h1>
-            <p>N'hésitez pas à me contacter si vous avez des questions.</p>
+            $body = "<body style='text-align:center'><h5 style='color:red'>Votre message a bien été enregistré.</h5>
+            <p>Je vous répondrai dans les plus brefs délais.</p>
             </ body>";
-            $content = `{{ contact_form.contenu }}`;
 
             $message = (new \Swift_Message)
                 ->setFrom("shinkansen13@gmail.com")
                 ->setTo($contactForm->getEmail())
                 ->setBody(
                     $body,
-                    $content,
                     'text/html' 
                     // text/plain ne permet pas l'utilisation du HTML !
                 )
