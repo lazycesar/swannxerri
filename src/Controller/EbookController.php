@@ -43,7 +43,7 @@ class EbookController extends AbstractController
             <p>N'hésitez pas à me faire part de vos questions.</p>
             </ body>";
 
-            $message = (new \Swift_Message)
+            $message = (new \Swift_Message("Votre Ebook de Swann Xerri"))
                 ->setFrom("shinkansen13@gmail.com")
                 ->setTo($ebook->getEmail())
                 ->setBody(

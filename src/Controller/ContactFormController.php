@@ -40,11 +40,14 @@ class ContactFormController extends AbstractController
             $entityManager->persist($contactForm);
             $entityManager->flush();
 
-            $body = "<body style='text-align:center'><h5 style='color:red'>Votre message a bien été enregistré.</h5>
+            $prenom = $contactForm->getPrenom();
+            $contenu = $contactForm->getContenu();
+            $body = "<body style='text-align:center'><h3 style='color:red'>Bonjour, $prenom ! Votre message a bien été enregistré.</h3>
             <p>Je vous répondrai dans les plus brefs délais.</p>
-            </ body>";
+            <div>Pour rappel, votre message était: <em>'$contenu'</em></div>
+            </body>";
 
-            $message = (new \Swift_Message)
+            $message = (new \Swift_Message("Swann Xerri - Contact"))
                 ->setFrom("shinkansen13@gmail.com")
                 ->setTo($contactForm->getEmail())
                 ->setBody(
