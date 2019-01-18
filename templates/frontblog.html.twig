@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des articles{% endblock %}
+
+{% block body %}
+
+{% for blog in blogs %}
+    <section>   
+
+        <img src={{ blog.image }} alt="photo" width="300px">
+        
+            <table>
+                <tr>
+                    <td>{{ blog.title }}</td>
+                    <td>{{ blog.publicationDate ? blog.publicationDate|date('Y-m-d H:i:s') : "" }}</td>
+                </tr>
+            </table>
+        
+        <p>{{ blog.content }}</p>  
+                
+    </section>
+{% endfor %}
+
+{% endblock %}
