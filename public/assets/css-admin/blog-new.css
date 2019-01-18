@@ -1,0 +1,74 @@
+h1 {
+    font-size: 2rem;
+    font-family: Arial;
+    font-weight: bold;
+    margin: 0 auto 3% auto;
+    color: white;
+    background-color: blue;
+    width: max-content;
+    padding: 1%;
+}
+form {
+    text-align: center;
+    margin-bottom: 3.25%;
+}
+input {
+    margin-bottom: 2%;
+    margin-right: 2%;
+}
+label {
+    margin-right: 2%;
+    font-family: Arial;
+    font-weight: bold;
+}
+#blog_content {
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+label[for="blog_content"] {
+    position: absolute;
+    top: 34.5%;
+    left: 38.2%;
+}
+button {
+    background-color: lightblue;
+    color: black;
+    padding: 1%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+    border: none;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+button:hover {
+    color: white;
+    background-color: blue;
+}
+button:before {
+    content: "";
+    border-bottom: 1px solid black;
+    position: absolute;
+    left: 35%;
+    top: 54.3%;
+    width: 30%;
+    height: 1px;
+}
+a {
+    display: block;
+    text-align: center;
+    padding: 1%;
+    text-decoration: none;
+    color: white;
+    background-color: #222222;
+    width: max-content;
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+}
+a:hover {
+    color: black;
+    background-color: lightgray;
+}
