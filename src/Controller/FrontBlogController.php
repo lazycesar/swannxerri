@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class FrontBlogController extends AbstractController
 {
     /**
-     *  @Route("/frontblog.html", name="blog")
+     *  @Route("/blog", name="blog")
      */
     public function index(BlogRepository $blogRepository) : Response
     {

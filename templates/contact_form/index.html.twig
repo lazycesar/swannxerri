@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ContactForm index{% endblock %}
+
+{% block body %}
+    <h1>ContactForm index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Objet</th>
+                <th>Email</th>
+                <th>Votre message</th>
+                <th>Date d'envoi</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact_form in contact_forms %}
+            <tr>
+                <td>{{ contact_form.id }}</td>
+                <td>{{ contact_form.prenom }}</td>
+                <td>{{ contact_form.nom }}</td>
+                <td>{{ contact_form.objet }}</td>
+                <td>{{ contact_form.email }}</td>
+                <td>{{ contact_form.contenu }}</td>
+                <td>{{ contact_form.dateEnvoi ? contact_form.dateEnvoi|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('contact_form_show', {'id': contact_form.id}) }}">show</a>
+                    <a href="{{ path('contact_form_edit', {'id': contact_form.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('contact_form_new') }}">Create new</a>
+{% endblock %}

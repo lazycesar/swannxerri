@@ -1,0 +1,75 @@
+h1 {
+    font-size: 2rem;
+    font-family: Arial;
+    font-weight: bold;
+    margin: 0 auto 3% auto;
+    color: white;
+    background-color: blue;
+    width: max-content;
+    padding: 1%;
+}
+table,
+tr,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+table {
+    margin: 3% auto 3% auto;
+    width: 40%;
+}
+th,
+td {
+    padding: 1% 0;
+}
+tr:nth-of-type(odd) {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+}
+tr:nth-of-type(even) {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+}
+a {
+    display: block;
+    color: white;
+    background-color: blue;
+    width: max-content;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+    margin: 0 auto 2% auto;
+    padding: 1%;
+    text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+a:hover {
+    color: yellow;
+    background-color: red;
+}
+.btn-delete {
+    background-color: red;
+    color: white;
+    padding: 1%;
+    margin-left: 46%;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+    border: 1px solid black;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+.btn-delete:hover {
+    color: yellow;
+    background-color: black;
+}

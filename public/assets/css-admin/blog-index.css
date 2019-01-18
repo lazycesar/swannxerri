@@ -1,0 +1,114 @@
+h1 {
+    font-size: 2rem;
+    font-family: Arial;
+    font-weight: bold;
+    margin: 0 auto 3% auto;
+    color: white;
+    background-color: blue;
+    width: max-content;
+    padding: 1%;
+}
+table {
+    margin-bottom: 3%;
+}
+table,
+tr,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+tr,
+td {
+    text-align: center;
+    width: 5%;
+}
+td {
+    padding: 1%;
+}
+tr:nth-of-type(odd) {
+    background-color: #d0dafd;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+}
+tr:nth-of-type(even) {
+    background-color: #e8edff;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+}
+th {
+    background-color: #e8edff;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+}
+td a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: yellow;
+    font-weight: bold;
+    background-color: red;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+.nav-links {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-add {
+    color: black;
+    background-color: lightblue;
+    width: max-content;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+    padding: 1%;
+    border: 1px solid blue;
+    text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+.nav-add:hover {
+    color: white;
+    background-color: blue;
+}
+.nav-logout {
+    color: white;
+    background-color: red;
+    width: max-content;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Arial;
+    border: 1px solid black;
+    padding: 1%;
+    text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+.nav-logout:hover {
+    color: yellow;
+    background-color: black;
+}
+.nav-users {
+    color: black;
+    background-color: lightblue;
+    width: max-content;
+    font-weight: bold;
+    border: 1px solid blue;
+    font-size: 1rem;
+    font-family: Arial;
+    padding: 1%;
+    text-decoration: none;
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+}
+.nav-users:hover {
+    color: white;
+    background-color: blue;
+}

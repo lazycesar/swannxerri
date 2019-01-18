@@ -8,7 +8,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
+
 
 
 class BlogType extends AbstractType
@@ -18,7 +19,7 @@ class BlogType extends AbstractType
         $builder
             ->add('title', TextType::class, ["label" => "Titre"])
             ->add('uploadImage', FileType::class, ["label" => "URL de l'image"])
-            ->add('content', TextareaType::class, ["label" => "Contenu"]);
+            ->add('content', CKEditorType::class, ["label" => "Contenu"]);
             // ->add('publicationDate');
     }
 
