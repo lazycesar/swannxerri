@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome ciaone{% endblock %}</title>
+        {% block stylesheets %}
+            {# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> #}
+	        <link href="https://fonts.googleapis.com/css?family=Lustria|Source+Sans+Pro:400,700" rel="stylesheet"> 
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />  
+            <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/style.css')) }}">
+            
+        {% endblock %}        
+    </head>
+<body>
+
+	<header class="header ">
+		<a href="index.html" class="header__logo">Logo</a>
+		<a href="" class="header__icon-bar">
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
+		<nav class="header__menu animate">
+			<a class="header__menu__item" href="#">Accueil</a></a>
+			<a class="header__menu__item" href="#">Swann</a></a>
+			<a class="header__menu__item" href="#">Coaching</a></a>
+			<a class="header__menu__item" href="#">Formation</a></a>
+			<a class="header__menu__item" href="#">Video</a></a>
+			<a class="header__menu__item" href="#">Blog</a></a>
+		</nav>
+        <a class="btn-outline" href="#">Members</a>
+	</header>
+
+	<section class="cover">
+		<div class="cover__filter"></div>
+		<div class="cover__caption">
+			<div class="cover__caption__copy">
+				<h1>Primary message of the Home </h1>
+				<h2>Subtitle of the home page</h2>
+				<a href="" class="button"> Call to action</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="cards ">
+		<div class="card">
+			<img class="card__image"src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+			<div class="card__copy">
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
+			</div>
+		</div>
+		<div class="card">
+			<img class="card__image"src="https://source.unsplash.com/category/food/400x260" alt="Nature">
+			<div class="card__copy">
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
+			</div>
+		</div>
+		<div class="card">
+			<img class="card__image"src="https://source.unsplash.com/category/people/400x260" alt="Nature">
+			<div class="card__copy">
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="banner ">
+		<div class="banner__image"></div>
+		<div class="banner__copy">
+			<div class="banner__copy__text">
+				<h3>Banner Title</h3>
+				<h4>Banner Subtitle</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas autem quam, explicabo pariatur sit nisi, adipisci saepe.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="cards ">
+		<div class="card">
+			<img class="card__image"src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+			<div class="card__copy">
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
+			</div>
+		</div>
+		<div class="card">
+			<img class="card__image"src="https://source.unsplash.com/category/food/400x260" alt="Nature">
+			<div class="card__copy">
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
+			</div>
+		</div>
+		<div class="card">
+			<img class="card__image"src="https://source.unsplash.com/category/people/400x260" alt="Nature">
+			<div class="card__copy">
+				<h3>Title Card</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
+			</div>
+		</div>
+	</section>
+	<section class="banner ">
+		<div class="banner__copy">
+			<div class="banner__copy__text">
+				<h3>Banner Title</h3>
+				<h4>Banner Subtitle</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas autem quam, explicabo pariatur sit nisi, adipisci saepe.</p>
+			</div>
+		</div>
+		<div class="banner__image"></div>
+	</section>
+<footer class="footer">
+	<p>Copyright - 2016</p>
+</footer>
+
+
+        {% block body %}{% endblock %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+            <script src="{{ absolute_url(asset('assets/js/script.js')) }}"></script>
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
