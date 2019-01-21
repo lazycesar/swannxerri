@@ -48,7 +48,7 @@ class ContactFormController extends AbstractController
             </body>";
 
             $message = (new \Swift_Message("Swann Xerri - Contact"))
-                ->setFrom("shinkansen13@gmail.com")
+                ->setFrom("contact@swannxerri.com")
                 ->setTo($contactForm->getEmail())
                 ->setBody(
                     $body,
@@ -57,7 +57,6 @@ class ContactFormController extends AbstractController
                 );
 
             $mailer->send($message);
-            // return $this->redirectToRoute('contact');
 
             return $this->redirectToRoute('contact_form_index');
         }
