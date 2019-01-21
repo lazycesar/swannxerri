@@ -16,8 +16,8 @@ class MemberType extends AbstractType
         $builder
             ->add('prenom')
             ->add('nom')
-            ->add('email')
             ->add('profil', ChoiceType::class, ["choices" => ["Je suis un particulier" => "Particulier", "Je suis un profesionnel" => "Professionnel"]])
+            ->add('email')
             ->add('password', PasswordType::class);
     }
 
