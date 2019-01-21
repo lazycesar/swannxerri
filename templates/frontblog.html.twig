@@ -12,11 +12,11 @@
             <table>
                 <tr>
                     <td>{{ blog.title }}</td>
-                    <td>{{ blog.publicationDate ? blog.publicationDate|date('Y-m-d H:i:s') : "" }}</td>
+                    <td>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y H:i:s') : "" }}</td>
                 </tr>
             </table>
         
-        <p>{{ blog.content | raw }}</p>  
+        <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
                 
     </section>
 {% endfor %}
