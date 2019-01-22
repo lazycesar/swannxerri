@@ -4,14 +4,28 @@
 
 {% block body %}
 
-<h1>Zone membres</h1>
+    <h1>Bienvenue dans votre espace membre</h1>
 
-<p>{{ "Vous êtes connecté(e)\nBonjour, "| nl2br }} {{ app.user.username }}</p>
+    <p>{{ "Vous êtes connecté(e)\nBonjour, " | nl2br }} {{ app.user.username }} {{ "\n" | nl2br }}
+    <a class="nav-logout" href="{{ url("logout") }}">Se déconnecter</a>
+    </p>
 
-<iframe width="365" height="205" src="https://www.youtube.com/embed/4koivVkJagc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section>
+        <iframe width="365" height="205" src="https://www.youtube.com/embed/4koivVkJagc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>titre</h3>
+        <p>durée</p>
+    </section>
 
-<iframe width="365" height="205" src="https://www.youtube.com/embed/4J477Hp138Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section>
+        <iframe width="365" height="205" src="https://www.youtube.com/embed/4J477Hp138Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>titre</h3>
+        <p>durée</p>
+    </section>
 
-<iframe width="365" height="205" src="https://www.youtube.com/embed/RP44XV2Ov40" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section>
+        <iframe width="365" height="205" src="https://www.youtube.com/embed/RP44XV2Ov40" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3>titre</h3>
+        <p>durée</p>
+    </section>
 
 {% endblock %}
