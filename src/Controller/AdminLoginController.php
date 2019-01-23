@@ -37,19 +37,23 @@ class AdminLoginController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $adminLogin->setCreationDate(new \DateTime);
-            $adminLogin->setLevel(1);
-            $passwordNonHashe = $adminLogin->getPassword();
+            $adminLogin->setLevel(0);
 
+            $passwordNonHashe = $adminLogin->getPassword();
             $passwordHashe = password_hash($passwordNonHashe, PASSWORD_BCRYPT);
             $adminLogin->setPassword($passwordHashe);
 
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($adminLogin);
-            $entityManager->flush();
+            $cleActivation = md5(uniqid());
+            $adminLogin->setCleActivation($cleActivation);
+            $adminLogin->setDateFinActivation(new \DateTime("+1 day"));
+
+            $email = $adminLogin->getEmail();
+            $urlActivation = $this->generateUrl("activation", [], UrlGeneratorInterface::ABSOLUTE_URL);
 
             $prenom = $adminLogin->getPrenom();
-            $body = "<body style='text-align:center'><h3 style='color:red'>Bonjour, $prenom ! Votre inscription a bien été enregistrée.</h3>
-            <p>N'hésitez pas à me faire part de vos commentaires.</p>
+            $body = "<body style='text-align:center'><h3 style='color:red'>Bonjour, $prenom ! Votre demande d'inscription a bien été enregistrée.</h3>
+            <p>Veuillez la confirmer en cliquant sur ce lien</p>
+            <p><a href='$urlActivation ? email = $email & cleActivation = $cleActivation'>ACTIVER MON COMPTE</a></p>
             <p>Merci et à bientôt !</p>
             <p style='font-weight:bold'>Swann</p>
             </body>";
@@ -57,15 +61,15 @@ class AdminLoginController extends AbstractController
             $message = (new \Swift_Message("Votre adhésion au site de Swann Xerri"))
                 ->setFrom("contact@swannxerri.com")
                 ->setTo($adminLogin->getEmail())
-                ->setBody(
-                    $body,
-                    'text/html' 
-                    // text/plain ne permet pas l'utilisation du HTML !
-                );
+                ->setBody($body, "text/html");  // "text/plain" ne permet pas l'utilisation du HTML !
 
             $mailer->send($message);
 
-            return $this->redirectToRoute('membre');
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($adminLogin);
+            $entityManager->flush();
+
+            //return $this->redirectToRoute('membre');
         }
 
         return $this->render('admin_login/new.html.twig', [

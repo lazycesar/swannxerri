@@ -66,6 +66,16 @@ class AdminLogin implements UserInterface, \Serializable
      */
     private $profil;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cle_activation;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date_limite_activation;
+
     public function getId() : ? int
     {
         return $this->id;
@@ -209,6 +219,30 @@ class AdminLogin implements UserInterface, \Serializable
     public function setProfil(string $profil): self
     {
         $this->profil = $profil;
+
+        return $this;
+    }
+
+    public function getCleActivation(): ?string
+    {
+        return $this->cle_activation;
+    }
+
+    public function setCleActivation(string $cle_activation): self
+    {
+        $this->cle_activation = $cle_activation;
+
+        return $this;
+    }
+
+    public function getDateLimiteActivation(): ?\DateTimeInterface
+    {
+        return $this->date_limite_activation;
+    }
+
+    public function setDateLimiteActivation(\DateTimeInterface $date_limite_activation): self
+    {
+        $this->date_limite_activation = $date_limite_activation;
 
         return $this;
     }
