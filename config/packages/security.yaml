@@ -4,6 +4,7 @@ security:
         # AJOUTER ICI LES URLS DES ESPACES PROTEGES ET LE ROLE NECESSAIRE POUR Y ACCEDER
         # Le nom du path s'ajoute avant le nom du fichier à atteindre. Voir le use_referer.
         - { path: ^/adminswann, roles: ROLE_ADMIN }
+        - { path: ^/signup/index, roles: ROLE_ADMIN }
         - { path: ^/membres, roles: ROLE_MEMBRE }
     providers:
         mon_login:

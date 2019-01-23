@@ -46,6 +46,26 @@ class AdminLogin implements UserInterface, \Serializable
      */
     private $creation_date;
 
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $prenom;
+
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $profil;
+
     public function getId() : ? int
     {
         return $this->id;
@@ -143,5 +163,53 @@ class AdminLogin implements UserInterface, \Serializable
                 // see section on salt below
                 // $this->salt
         ) = unserialize($serialized);
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): self
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getProfil(): ?string
+    {
+        return $this->profil;
+    }
+
+    public function setProfil(string $profil): self
+    {
+        $this->profil = $profil;
+
+        return $this;
     }
 }

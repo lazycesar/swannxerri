@@ -46,6 +46,11 @@ class Member
      */
     private $date_adhesion;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $username;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Member
     public function setDateAdhesion(\DateTimeInterface $date_adhesion): self
     {
         $this->date_adhesion = $date_adhesion;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
 
         return $this;
     }

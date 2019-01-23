@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/adminswann/login")
+ * @Route("/signup")
  */
 class AdminLoginController extends AbstractController
 {
     /**
-     * @Route("/", name="admin_login_index", methods={"GET"})
+     * @Route("/index", name="admin_login_index", methods={"GET"})
      */
     public function index(AdminLoginRepository $adminLoginRepository) : Response
     {
@@ -28,7 +28,7 @@ class AdminLoginController extends AbstractController
     /**
      * @Route("/new", name="admin_login_new", methods={"GET","POST"})
      */
-    public function new(Request $request) : Response
+    public function new(Request $request, \Swift_Mailer $mailer) : Response
     {
         $adminLogin = new AdminLogin();
         $form = $this->createForm(AdminLoginType::class, $adminLogin);
@@ -37,7 +37,7 @@ class AdminLoginController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
             $adminLogin->setCreationDate(new \DateTime);
-            $adminLogin->setLevel(1);     // 
+            $adminLogin->setLevel(1);
             $passwordNonHashe = $adminLogin->getPassword();
 
             $passwordHashe = password_hash($passwordNonHashe, PASSWORD_BCRYPT);
@@ -47,7 +47,25 @@ class AdminLoginController extends AbstractController
             $entityManager->persist($adminLogin);
             $entityManager->flush();
 
-            return $this->redirectToRoute('blog_index');
+            $prenom = $adminLogin->getPrenom();
+            $body = "<body style='text-align:center'><h3 style='color:red'>Bonjour, $prenom ! Votre inscription a bien été enregistrée.</h3>
+            <p>N'hésitez pas à me faire part de vos commentaires.</p>
+            <p>Merci et à bientôt !</p>
+            <p style='font-weight:bold'>Swann</p>
+            </body>";
+
+            $message = (new \Swift_Message("Votre adhésion au site de Swann Xerri"))
+                ->setFrom("contact@swannxerri.com")
+                ->setTo($adminLogin->getEmail())
+                ->setBody(
+                    $body,
+                    'text/html' 
+                    // text/plain ne permet pas l'utilisation du HTML !
+                );
+
+            $mailer->send($message);
+
+            return $this->redirectToRoute('membre');
         }
 
         return $this->render('admin_login/new.html.twig', [
@@ -57,7 +75,7 @@ class AdminLoginController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_login_show", methods={"GET"})
+     * @Route("/index/show/{id}", name="admin_login_show", methods={"GET"})
      */
     public function show(AdminLogin $adminLogin) : Response
     {
@@ -67,7 +85,7 @@ class AdminLoginController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="admin_login_edit", methods={"GET","POST"})
+     * @Route("/index/edit/{id}", name="admin_login_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, AdminLogin $adminLogin) : Response
     {
@@ -89,7 +107,7 @@ class AdminLoginController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="admin_login_delete", methods={"DELETE"})
+     * @Route("/index/{id}", name="admin_login_delete", methods={"DELETE"})
      */
     public function delete(Request $request, AdminLogin $adminLogin) : Response
     {

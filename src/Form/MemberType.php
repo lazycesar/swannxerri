@@ -18,6 +18,7 @@ class MemberType extends AbstractType
             ->add('nom')
             ->add('profil', ChoiceType::class, ["choices" => ["Je suis un particulier" => "Particulier", "Je suis un profesionnel" => "Professionnel"]])
             ->add('email')
+            ->add('username')
             ->add('password', PasswordType::class);
     }
 
