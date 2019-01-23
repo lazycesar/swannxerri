@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+
 
 /**
  * @Route("/signup")
@@ -45,7 +47,7 @@ class AdminLoginController extends AbstractController
 
             $cleActivation = md5(uniqid());
             $adminLogin->setCleActivation($cleActivation);
-            $adminLogin->setDateFinActivation(new \DateTime("+1 day"));
+            $adminLogin->setDateLimiteActivation(new \DateTime("+1 day"));
 
             $email = $adminLogin->getEmail();
             $urlActivation = $this->generateUrl("activation", [], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -53,7 +55,7 @@ class AdminLoginController extends AbstractController
             $prenom = $adminLogin->getPrenom();
             $body = "<body style='text-align:center'><h3 style='color:red'>Bonjour, $prenom ! Votre demande d'inscription a bien été enregistrée.</h3>
             <p>Veuillez la confirmer en cliquant sur ce lien</p>
-            <p><a href='$urlActivation ? email = $email & cleActivation = $cleActivation'>ACTIVER MON COMPTE</a></p>
+            <p><a href='$urlActivation?email=$email&cleActivation=$cleActivation'>ACTIVER MON COMPTE</a></p>
             <p>Merci et à bientôt !</p>
             <p style='font-weight:bold'>Swann</p>
             </body>";
@@ -69,12 +71,62 @@ class AdminLoginController extends AbstractController
             $entityManager->persist($adminLogin);
             $entityManager->flush();
 
-            //return $this->redirectToRoute('membre');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('admin_login/new.html.twig', [
             'admin_login' => $adminLogin,
             'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/activation", name="activation", methods={"GET","POST"})
+     */
+    public function activation(/*ArticleRepository $articleRepository,*/AdminLoginRepository $adminLoginRepository, Request $request, \Swift_Mailer $mailer) : Response
+    {
+
+        $email = $request->get("email");
+        $cleActivation = $request->get("cleActivation");
+
+        if (($email != "") && ($cleActivation != "")) {
+            $userCherche = $adminLoginRepository->findOneBy(["email" => $email]);
+            if ($userCherche) {
+
+                if ($cleActivation == $userCherche->getCleActivation()) {
+                    $dateFin = $userCherche->getDateLimiteActivation();
+                    // http://php.net/manual/fr/datetime.gettimestamp.php
+                    $timestampFin = $dateFin->getTimeStamp();
+                    // http://php.net/manual/fr/function.time.php
+                    $timestampActuel = time();
+                    if ($timestampFin > $timestampActuel) {
+
+                        $userCherche->setLevel(1);
+                        $userCherche->setCleActivation(md5(uniqid()));
+                        $userCherche->setDateLimiteActivation(new \DateTime("+1 week"));
+
+                        $entityManager = $this->getDoctrine()->getManager();
+                        $entityManager->flush();
+
+                        $messageConfirmation = "Merci, votre compte est désormais actif";
+                        return $this->redirectToRoute('membre');
+                    } else {
+                        $messageConfirmation = "La date de validité de la clé d'activation a expiré. Veuillez recommencer votre inscription";
+                    }
+                }
+            } else {
+                $messageConfirmation = "Désolé, Vous n'êtes pas dans notre base de données.";
+            }
+        }
+
+        dump($_REQUEST);
+        dump("$email,$cleActivation");
+
+        return $this->render('admin_login/activation.html.twig', [
+           // 'articleFooter' => $articleFooter,
+            'email' => $email,
+            'cleActivation' => $cleActivation,
+            'messageConfirmation' => $messageConfirmation ?? "",
         ]);
     }
 

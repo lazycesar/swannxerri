@@ -175,72 +175,72 @@ class AdminLogin implements UserInterface, \Serializable
         ) = unserialize($serialized);
     }
 
-    public function getPrenom(): ?string
+    public function getPrenom() : ? string
     {
         return $this->prenom;
     }
 
-    public function setPrenom(string $prenom): self
+    public function setPrenom(string $prenom) : self
     {
         $this->prenom = $prenom;
 
         return $this;
     }
 
-    public function getNom(): ?string
+    public function getNom() : ? string
     {
         return $this->nom;
     }
 
-    public function setNom(string $nom): self
+    public function setNom(string $nom) : self
     {
         $this->nom = $nom;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail() : ? string
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(string $email) : self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getProfil(): ?string
+    public function getProfil() : ? string
     {
         return $this->profil;
     }
 
-    public function setProfil(string $profil): self
+    public function setProfil(string $profil) : self
     {
         $this->profil = $profil;
 
         return $this;
     }
 
-    public function getCleActivation(): ?string
+    public function getCleActivation() : ? string
     {
         return $this->cle_activation;
     }
 
-    public function setCleActivation(string $cle_activation): self
+    public function setCleActivation(string $cle_activation) : self
     {
         $this->cle_activation = $cle_activation;
 
         return $this;
     }
 
-    public function getDateLimiteActivation(): ?\DateTimeInterface
+    public function getDateLimiteActivation() : ? \DateTimeInterface
     {
         return $this->date_limite_activation;
     }
 
-    public function setDateLimiteActivation(\DateTimeInterface $date_limite_activation): self
+    public function setDateLimiteActivation(\DateTimeInterface $date_limite_activation) : self
     {
         $this->date_limite_activation = $date_limite_activation;
 
