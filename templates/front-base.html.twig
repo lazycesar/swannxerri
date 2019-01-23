@@ -7,7 +7,7 @@
         <title>{% block title %}Welcome ciaone{% endblock %}</title>
         {% block stylesheets %}
             {# <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> #}
-			<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Playfair+Display:400,900" rel="stylesheet">
+			<link href="https://fonts.googleapis.com/css?family=Montserrat:300,700|Playfair+Display:400,700" rel="stylesheet">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />  
             <link rel="stylesheet" href="{{ absolute_url(asset('assets/css/style.css')) }}">            
         {% endblock %}        
@@ -36,13 +36,14 @@
 			<span></span>
 		</a>
 		<nav class="header__menu animate">
-			<a class="header__menu__item" href="#">Accueil</a></a>
-			<a class="header__menu__item" href="#">Swann</a></a>
-			<a class="header__menu__item" href="#">Professionel</a></a>
-			<a class="header__menu__item" href="#">Particulier</a></a>
-			<a class="header__menu__item" href="#">e-Formation</a></a>
-			<a class="header__menu__item" href="#">Vidéos</a></a>
-			<a class="header__menu__item" href="#">Articles</a></a>
+			<a class="first header__menu__item" href="#">Accueil</a></a>
+			<a class="second header__menu__item" href="#">Swann</a></a>
+			<a class="third header__menu__item" href="#">Professionel</a></a>
+			<a class="fourth header__menu__item" href="#">Particulier</a></a>
+			<a class="fifth fifth header__menu__item" href="#">e-Formation</a></a>
+			<a class="sixth header__menu__item" href="#">Vidéos</a></a>
+			<a class="seventh header__menu__item" href="#">Articles</a></a>
+			<hr>
 		</nav>
         <a class="btn-outline" href="#">Membres</a>
 	</header>
@@ -58,32 +59,100 @@
 			</div>
 		</div>
 	</section>
+	<section class="about">
+		<div class="about__left flexitem-auto">
+			<figure class="about__left__figure">
+				<img class="about__left__image" src="/assets/img/swann_4.jpg" alt="Swann Xerri">
+			</figure>
+		</div>
+		<div class="about__right flexitem-auto">
+			<div class="about__copy">
+				<h2>Swann Xerri</h2>
+				<p class="subtitle">Achieve your personal goals with life coaching. Achieve your personal goals with life coaching.</p>
+				<p>En tant que coach de vie, je suis spécialisé, depuis de nombreuses années, dans l’aide à des personnes comme vous, pour que vous puissiez atteindre vos objectifs, surmonter vos souffrances en les transformant en opportunités et réussir votre vie.
+				Tout d’abord, vous voulez donner le meilleur de vous-même à votre famille ? à votre entreprise ? aux autres ?
 
-	<section class="cards ">
-		<div class="card">
-			<img class="card__image"src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
-			<div class="card__copy">
-				<h3>Title Card</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
+				Très bien ! Mais c’est quoi le meilleur de vous-même ? C’est quand ? C’est comment ?
+				Le monde que vous vivez n’existe que dans un seul endroit : votre cerveau.
+				Le meilleur de vous-même ce ne peut donc être que vous-même, avec vos qualités, vos défauts, vos envies dans un lien positif avec la réalité qui vous entoure, avec les autres. Quand ? C’est quand vous êtes en éveil, en marche, en évolution
+				</p>
 			</div>
-		</div>
-		<div class="card">
-			<img class="card__image"src="https://source.unsplash.com/category/food/400x260" alt="Nature">
-			<div class="card__copy">
-				<h3>Title Card</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
-			</div>
-		</div>
-		<div class="card">
-			<img class="card__image"src="https://source.unsplash.com/category/people/400x260" alt="Nature">
-			<div class="card__copy">
-				<h3>Title Card</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis sequi incidunt optio, asperiores dolorum ratione excepturi. </p>
-			</div>
-		</div>
+		</div>	
 	</section>
 
 
+	<section class="blog">
+		<div class="container-center">
+			<div class="title-section w100">
+				<h2 class="">Conseils pour transformer votre vie</h2>
+				<p class="subtitle">
+				Achieve your personal goals with life coaching. Achieve your personal goals with life coaching.
+				</p>
+			</div>
+			<div class="card">
+				<img class="card__image"src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+				<div class="card__copy">
+					<h3 class="post-title">Comment faire face aux pensées négatives…</h3>
+					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image"src="https://source.unsplash.com/category/food/400x260" alt="Nature">
+				<div class="card__copy">
+					<h3 class="post-title">Comment faire face aux pensées négatives…</h3>
+					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				</div>
+			</div>
+			<div class="card">
+				<img class="card__image"src="https://source.unsplash.com/category/people/400x260" alt="Nature">
+				<div class="card__copy">
+					<h3 class="post-title">Comment faire face aux pensées négatives…</h3>
+					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				</div>
+			</div>				
+		</div>{# end container center #}
+	</section>
+
+	<section class="video">
+		<div class="container-center">
+			<div class="title-section w100">
+				<h2 class="">Conseils d'ami</h2>
+				<p class="subtitle">Pour vous rendre la vie plus légère, voici quelques conseils d'ami</p>
+			</div>
+			<div class="card-video">
+				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0" height="300px" controls="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="card-video">
+				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="card-video">
+				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			{# <button class="button buttonflex">YouTube</button>			 #}
+		</div>{# end container center #}
+	</section>
+
+	<section class="coaching">
+		<div class="container-center">
+			<div class="card-coaching">
+				<img class="coaching__image"src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+				<div class="coaching__copy">
+					<h3 class="post-title">Coaching en Entreprise</h3>
+					<p>C’est donner aux dirigeants comme aux employés, la possibilité de progresser personnellement et faire bénéficier l’entreprise de cette évolution .C’est donner aux dirigeants comme aux employés, la possibilité de progresser personnellement et faire bénéficier l’entreprise de cette évolution .</p>
+					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				</div>
+			</div>
+			<div class="card-coaching">
+				<img class="coaching__image"src="https://source.unsplash.com/category/food/400x260" alt="Nature">
+				<div class="coaching__copy">
+					<h3 class="post-title">Coaching Personnel</h3>
+					<p>C’est un accompagnement concret, orienté vers l’écoute, la recherche de solutions et l’action. La personne agit concrétement en lien avec ses prises de conscience.C’est un accompagnement concret, orienté vers l’écoute, la recherche de solutions et l’action. La personne agit concrétement en lien avec ses prises de conscience.</p>
+					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				</div>
+			</div>				
+		</div>{# end container center #}
+	</section>
+	
 	<section class="banner ">
 		<div class="banner__image"></div>
 		<div class="banner__copy">
