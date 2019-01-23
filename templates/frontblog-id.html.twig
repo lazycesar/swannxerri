@@ -11,12 +11,11 @@
         
          <h3>{{ blog.title }}</h3>
          <p>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y H:i:s') : "" }}</p>
-         <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
+         <p>{{ blog.content }}</p>  
 
-         <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
+         {# <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a> #}
              
     </section>
 {% endfor %}
 
 {% endblock %}
-

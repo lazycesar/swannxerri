@@ -19,4 +19,14 @@ class FrontBlogController extends AbstractController
             'blogs' => $blogRepository->findAll(),
         ]);
     }
+
+    /**
+     * @Route("/blog/{id}", name="blog_show", methods={"GET"})
+     */
+    public function show(Blog $blog) : Response
+    {
+        return $this->render('frontblog-id.html.twig', [
+            'blogs' => $blog,
+        ]);
+    }
 }

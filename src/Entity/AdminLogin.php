@@ -104,7 +104,7 @@ class AdminLogin implements UserInterface, \Serializable
     public function getRoles()
     {
         if ($this->level >= 2)
-            return ['ROLE_ADMIN'];
+            return ['ROLE_ADMIN', 'ROLE_MEMBRE'];
         elseif ($this->level = 1)
             return ['ROLE_MEMBRE'];
         else

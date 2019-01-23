@@ -1,35 +1,35 @@
 # config/packages/security.yaml
 security:
-  access_control:
-    # AJOUTER ICI LES URLS DES ESPACES PROTEGES ET LE ROLE NECESSAIRE POUR Y ACCEDER
-    # Le nom du path s'ajoute avant le nom du fichier à atteindre. Voir le use_referer.
-    - { path: ^/adminswann, roles: ROLE_ADMIN }
-    - { path: ^/membres, roles: ROLE_MEMBRE }
-  providers:
-    mon_login:
-      entity:
-        # On utilise l'entité avec la propriété username.
-        class: App\Entity\AdminLogin
-        property: username
-  firewalls:
-    main:
-      security: true
-      pattern: ^/
-      anonymous: ~
-      provider: mon_login
-      form_login:
-        login_path: login
-        check_path: login
-        use_referer: false # Si on met "true", on ne met pas le "default_target_path".
-        default_target_path: blog_index
-        ## CSRF: CROSS SITE REQUEST FORGERY
-        csrf_token_generator: security.csrf.token_manager
-      logout:
-        path: logout
-        target: login
-    dev:
-      pattern: ^/(_(profiler|wdt)|css|images|js)/
-      security: false
-  encoders:
-    App\Entity\AdminLogin:
-      algorithm: bcrypt
+    access_control:
+        # AJOUTER ICI LES URLS DES ESPACES PROTEGES ET LE ROLE NECESSAIRE POUR Y ACCEDER
+        # Le nom du path s'ajoute avant le nom du fichier à atteindre. Voir le use_referer.
+        - { path: ^/adminswann, roles: ROLE_ADMIN }
+        - { path: ^/membres, roles: ROLE_MEMBRE }
+    providers:
+        mon_login:
+            entity:
+                # On utilise l'entité avec la propriété username.
+                class: App\Entity\AdminLogin
+                property: username
+    firewalls:
+        main:
+            security: true
+            pattern: ^/
+            anonymous: ~
+            provider: mon_login
+            form_login:
+                login_path: login
+                check_path: login
+                use_referer: false # Si on met "true", on ne met pas le "default_target_path".
+                default_target_path: blog_index
+                ## CSRF: CROSS SITE REQUEST FORGERY
+                csrf_token_generator: security.csrf.token_manager
+            logout:
+                path: logout
+                target: login
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+    encoders:
+        App\Entity\AdminLogin:
+            algorithm: bcrypt
