@@ -26,7 +26,7 @@ class AdminLoginController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="admin_login_new", methods={"GET","POST"})
+     * @Route("/", name="admin_login_new", methods={"GET","POST"})
      */
     public function new(Request $request, \Swift_Mailer $mailer) : Response
     {
