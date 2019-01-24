@@ -115,9 +115,19 @@ a {
 .title-section {
   margin-bottom: 3rem;
 }
+.flex-center {
+  width: 1024px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  max-width: 90%;
+}
 
 .container-center {
-  width: 1024px;
+  width: 1080px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -129,7 +139,6 @@ a {
 /*-----------------------------
 header
 -----------------------------*/
-
 .header {
   background: var(--white);
   align-items: center;
@@ -146,7 +155,7 @@ header
   color: var(--white);
   display: block;
   text-decoration: none;
-  width: 160px;
+  width: 100px;
   float: left;
   padding: 0.75rem 0.5rem;
 }
@@ -624,25 +633,31 @@ Footer
 }
 
 /*-----------------------------
-Single
+Single: Blog-Page
 -----------------------------*/
-.panel {
+#blog-page {
+  margin-top: 3rem;
 }
-.panel__copy {
-  max-width: 800px;
-  margin: 0px auto;
-  margin-top: -60px;
-  background: var(--white);
-  padding: 20px 40px;
-  position: relative;
-  z-index: 1;
+#blog-page article {
+  flex: 1 1 200px;
+  padding: 1rem;
+  text-align: center;
 }
-.panel__copy__meta {
-  font-weight: bold;
-  font-size: 16px;
+#blog-page img {
+  margin: 0;
+  height: 300px;
+  outline-color: var(--cream);
+  transition: all 3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  filter: grayscale(5);
+  object-fit: cover;
 }
-.panel__copy__title {
-  font-size: 32px;
+#blog-page figcaption {
+  padding: 1rem 2rem;
+  text-align: center;
+}
+#blog-page h3 {
+  border-bottom: 1px solid var(--softblue);
+  padding-bottom: 0.5rem;
 }
 /*-----------------------------
 Tablet
@@ -748,6 +763,21 @@ Smartphone
   .formation__left__image {
     width: 90%;
     height: 300px;
+  }
+  .formation__left__figure {
+    position: relative;
+    margin-top: 1rem;
+  }
+  .formation__left__figure::before {
+    content: " ";
+    background-color: var(--softblue);
+    width: 93vw;
+    height: 50%;
+    position: absolute;
+    top: 25%;
+    display: block;
+    z-index: -1;
+    left: 15px;
   }
   /* Feedback */
   .card-feedback {

@@ -5,7 +5,7 @@
 {% block body %}
 
 
-<section class="cover">
+    <section class="cover">
 		<div class="cover-left">
 		</div>
 		<div class="cover-right">
@@ -35,6 +35,78 @@
 		</div>	
 	</section>
 
+    <section class="coaching">
+		<div class="container-center">
+			<div class="title-section w100">
+				<h2 class="">Comment puis-je vous aider ?</h2>
+				<p class="subtitle">Pour vous rendre la vie plus légère, voici quelques conseils d'ami</p>
+			</div>
+			<div class="card-coaching">
+				<img class="coaching__image"src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+				<div class="coaching__copy">
+					<h3 class="post-title">Coaching en Entreprise</h3>
+					<p>Et si vous donniez un nouvel élan à votre carrière professionnelle tout en développant vos qualités personnelles ?</p> {{ "\n" | nl2br}}
+					<p>Bénéficiez d'un accompagnement en management, communication, leadership qui vous donnera les clés de la performance au bénéfice de  l'entreprise.</p>
+					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				</div>
+			</div>
+			<div class="card-coaching">
+				<img class="coaching__image"src="https://source.unsplash.com/category/food/400x260" alt="Nature">
+				<div class="coaching__copy">
+					<h3 class="post-title">Coaching Personnel</h3>
+					<p>Besoin d'un petit coup de pouce pour libérer votre potentiel ? Ou pour vous libérer de vos pensées négatives ?</p> {{ "\n" | nl2br}}
+					<p>Épanouissez-vous en découvrant la personne que vous êtes et acquérez la confiance en soi nécessaire pour déterminer votre avenir.</p>
+					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				</div>
+			</div>				
+		</div>{# end container center #}
+	</section>
+
+    <section class="formation">
+		<div class="formation__left flexitem-auto">
+			<div class="formation__copy">
+				<h2>e-Formation</h2>
+				<p>Formez-vous à votre rythme grace a nos packs de coaching vidéo!
+				</p>
+				<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+			</div>			
+		</div>
+		<div class="formation__right flexitem-auto">
+			<figure class="formation__left__figure">
+				<img class="formation__left__image" src="/assets/img/swann_3.jpg" alt="Swann Xerri">
+			</figure>			
+		</div>
+	</section>
+
+     <section class="cta-ebook">
+		<div class="cta-ebook__copy">
+			<h1>Recevez mon ebook gratuit</h1>
+			<p>Titre du ebook</p>
+		</div>
+		<form class="cta-ebook__form"action="">
+		<input class="cta-ebook__input" type="email" placeholder="Entrez votre adresse email"><!--
+		--><input class="cta-ebook__submit" type="submit" value="Envoyer">
+		</form>
+	</section>
+
+    <section class="video">
+		<div class="container-center">
+			<div class="title-section w100">
+				<h2 class="">Conseils d'ami</h2>
+				<p class="subtitle">Pour vous rendre la vie plus légère, voici quelques conseils d'ami</p>
+			</div>
+			<div class="card-video">
+				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0" height="300px" controls="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="card-video">
+				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			<div class="card-video">
+				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+			{# <button class="button buttonflex">YouTube</button>			 #}
+		</div>{# end container center #}
+	</section>
 
 	<section class="blog">
 		<div class="container-center">
@@ -66,78 +138,6 @@
 				</div>
 			</div>				
 		</div>{# end container center #}
-	</section>
-
-	<section class="video">
-		<div class="container-center">
-			<div class="title-section w100">
-				<h2 class="">Conseils d'ami</h2>
-				<p class="subtitle">Pour vous rendre la vie plus légère, voici quelques conseils d'ami</p>
-			</div>
-			<div class="card-video">
-				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0" height="300px" controls="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="card-video">
-				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="card-video">
-				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			{# <button class="button buttonflex">YouTube</button>			 #}
-		</div>{# end container center #}
-	</section>
-
-	<section class="coaching">
-		<div class="container-center">
-			<div class="title-section w100">
-				<h2 class="">Comment puis-je vous aider ?</h2>
-				<p class="subtitle">Pour vous rendre la vie plus légère, voici quelques conseils d'ami</p>
-			</div>
-			<div class="card-coaching">
-				<img class="coaching__image"src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
-				<div class="coaching__copy">
-					<h3 class="post-title">Coaching en Entreprise</h3>
-					<p>Et si vous donniez un nouvel élan à votre carrière professionnelle tout en développant vos qualités personnelles ?</p> {{ "\n" | nl2br}}
-					<p>Bénéficiez d'un accompagnement en management, communication, leadership qui vous donnera les clés de la performance au bénéfice de  l'entreprise.</p>
-					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
-				</div>
-			</div>
-			<div class="card-coaching">
-				<img class="coaching__image"src="https://source.unsplash.com/category/food/400x260" alt="Nature">
-				<div class="coaching__copy">
-					<h3 class="post-title">Coaching Personnel</h3>
-					<p>Besoin d'un petit coup de pouce pour libérer votre potentiel ? Ou pour vous libérer de vos pensées négatives ?</p> {{ "\n" | nl2br}}
-					<p>Épanouissez-vous en découvrant la personne que vous êtes et acquérez la confiance en soi nécessaire pour déterminer votre avenir.</p>
-					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
-				</div>
-			</div>				
-		</div>{# end container center #}
-	</section>
-	<section class="cta-ebook">
-		<div class="cta-ebook__copy">
-			<h1>Recevez mon ebook gratuit</h1>
-			<p>Titre du ebook</p>
-		</div>
-		<form class="cta-ebook__form"action="">
-		<input class="cta-ebook__input" type="email" placeholder="Entrez votre adresse email"><!--
-		--><input class="cta-ebook__submit" type="submit" value="Envoyer">
-		</form>
-	</section>
-
-	<section class="formation">
-		<div class="formation__left flexitem-auto">
-			<div class="formation__copy">
-				<h2>e-Formation</h2>
-				<p>Formez-vous à votre rythme grace a nos packs de coaching vidéo!
-				</p>
-				<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
-			</div>			
-		</div>
-		<div class="formation__right flexitem-auto">
-			<figure class="formation__left__figure">
-				<img class="formation__left__image" src="/assets/img/swann_3.jpg" alt="Swann Xerri">
-			</figure>			
-		</div>
 	</section>
 
 	<section class="feedback">
@@ -198,13 +198,15 @@
 			</div>				
 		</div>{# end container center #}
 	</section>
-	<section class="cta">
+	
+    <section class="cta">
 		<div class="cta__text">
 				<h1>Besoin d'un conseil ? </h1>
 				<h2>I don’t know who you are, but I will find you and I will help you.</h2>
 				<a href="" class="button"> contactez moi!</a>
 			</div>
 	</section>
+
 	<section class="brand">
 		<figure>
 		<img src="/assets/img/brand-1.png" alt="brand 1">
@@ -219,6 +221,4 @@
 		<img src="/assets/img/brand-4.png" alt="brand 1">
 		</figure>
 	</section>
-
-
 {% endblock %}

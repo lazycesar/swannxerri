@@ -3,19 +3,22 @@
 {% block title %}Liste des articles{% endblock %}
 {% block body %}
 
-{% for blog in blogs %}
-    <section>   
 
-        <figure><img src={{ blog.image }} alt="photo" width="300px"></figure>
-        
-         <h3>{{ blog.title }}</h3>
-         <p>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y H:i:s') : "" }}</p>
-         <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
-
-         <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
-             
+    <section id="blog-page" class="flex-center">   
+    {% for blog in blogs %}
+        <article>
+            <figure><img src={{ blog.image }} alt="photo" width="300px">
+                <figcaption>
+                    <time>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y') : "" }}</time>
+                    <h3>{{ blog.title }}</h3>
+                    <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
+                    <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
+                </figcaption>
+            </figure>
+        </article>
+    {% endfor %}
     </section>
-{% endfor %}
+
 
 {% endblock body %}
 
