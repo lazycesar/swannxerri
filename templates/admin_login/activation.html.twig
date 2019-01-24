@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ACTIVATION{% endblock %}
+
+{% block body %}
+    <h1>FORMULAIRE D'ACTIVATION DE COMPTE</h1>
+    <form method="POST">
+        <input type="email" name="email" value="{{ email }}">
+        <input type="text" name="cleActivation" value="{{ cleActivation }}">
+        <button type="submit">ACTIVER MON COMPTE</button>
+        
+        <!-- JE DEMANDE UN TOKEN DE SECURITY CONTRE CSRF -->
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <div>
+            {{ messageConfirmation ?? "" }}
+        </div>
+    </form>
+{% endblock %}
