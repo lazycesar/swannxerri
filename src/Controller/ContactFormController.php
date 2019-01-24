@@ -52,8 +52,7 @@ class ContactFormController extends AbstractController
                 ->setTo($contactForm->getEmail())
                 ->setBody(
                     $body,
-                    'text/html' 
-                    // text/plain ne permet pas l'utilisation du HTML !
+                    'text/html'
                 );
 
             $mailer->send($message);
@@ -63,13 +62,12 @@ class ContactFormController extends AbstractController
                 ->setTo("shinkansen13@gmail.com")
                 ->setBody(
                     $contenu,
-                    'text/html' 
-                    // text/plain ne permet pas l'utilisation du HTML !
+                    'text/html'
                 );
 
             $mailer->send($copyMessage);
 
-            return $this->redirectToRoute('contact_form_index');
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('contact_form/new.html.twig', [

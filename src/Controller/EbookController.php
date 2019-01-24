@@ -40,7 +40,7 @@ class EbookController extends AbstractController
             $entityManager->flush();
 
             $body = "<body style='text-align:center'><h3 style='color:red'>Merci d'avoir téléchargé mon ebook. Il se trouve en pièce jointe</h3>
-            <p>N'hésitez pas à me faire part de vos questions.</p>
+            <p>N'hésitez pas à me faire part de vos commentaires.</p>
             </ body>";
 
             $message = (new \Swift_Message("Votre Ebook de Swann Xerri"))
@@ -48,14 +48,27 @@ class EbookController extends AbstractController
                 ->setTo($ebook->getEmail())
                 ->setBody(
                     $body,
-                    'text/html' 
-                    // text/plain ne permet pas l'utilisation du HTML !
+                    'text/html'
                 )
                 ->attach(\Swift_Attachment::fromPath('assets/ebook/test-ebook.pdf'));
 
             $mailer->send($message);
 
-            return $this->redirectToRoute('ebook_index');
+            $newEmail = $ebook->getEmail();
+            $content = "<p>Votre ebook a été téléchargé par l'adresse email suivante :</p>
+            <p style='color:red'>$newEmail</p>";
+
+            $confirmation = (new \Swift_Message("Téléchargement de votre Ebook"))
+                ->setFrom($ebook->getEmail())
+                ->setTo("shinkansen13@gmail.com")
+                ->setBody(
+                    $content,
+                    'text/html'
+                );
+
+            $mailer->send($confirmation);
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('ebook/new.html.twig', [
