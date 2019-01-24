@@ -1,11 +1,8 @@
 {% extends 'front-base.html.twig' %}
 
-{% block title %}Hello IndexController!{% endblock %}
-
-{% block body %}
-
-
-<section class="cover">
+	{% block header %}{% endblock header %}
+    {% block body %}
+	<section class="cover">
 		<div class="cover-left">
 		</div>
 		<div class="cover-right">
@@ -219,6 +216,5 @@
 		<img src="/assets/img/brand-4.png" alt="brand 1">
 		</figure>
 	</section>
-
-
-{% endblock %}
+    {% endblock %}
+    {% block footer %}{% endblock footer %}

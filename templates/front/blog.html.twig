@@ -1,7 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'front-base.html.twig' %}
 
 {% block title %}Liste des articles{% endblock %}
-
 {% block body %}
 
 {% for blog in blogs %}
@@ -18,5 +17,5 @@
     </section>
 {% endfor %}
 
-{% endblock %}
+{% endblock body %}
 
