@@ -58,6 +58,17 @@ class ContactFormController extends AbstractController
 
             $mailer->send($message);
 
+            $copyMessage = (new \Swift_Message("Demande de contact"))
+                ->setFrom("contact@swannxerri.com")
+                ->setTo("shinkansen13@gmail.com")
+                ->setBody(
+                    $contenu,
+                    'text/html' 
+                    // text/plain ne permet pas l'utilisation du HTML !
+                );
+
+            $mailer->send($copyMessage);
+
             return $this->redirectToRoute('contact_form_index');
         }
 

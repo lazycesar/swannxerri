@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType;
 
 class ContactFormType extends AbstractType
 {
@@ -19,7 +20,10 @@ class ContactFormType extends AbstractType
             ->add('nom', TextType::class, ["label" => "Nom", "attr" => ["placeholder" => "Entrez votre nom"]])
             ->add('email', TextType::class, ["label" => "Email", "attr" => ["placeholder" => "Entrez votre adresse email"]])
             ->add('objet', ChoiceType::class, ["choices" => ["Informations coaching personnel" => "Perso", "Informations coaching profesionnel" => "Pro", "Informations conférences" => "Conférence", "Autre demande" => "Autre"]])
-            ->add('contenu', TextareaType::class, ["label" => "Message", "attr" => ["placeholder" => "Quel est votre message ?"]]);
+            ->add('contenu', TextareaType::class, ["label" => "Message", "attr" => ["placeholder" => "Quel est votre message ?"]])
+            ->add('captchaCode', SimpleCaptchaType::class, array(
+                'captchaStyleName' => 'ExampleCaptcha'
+            ));
     }
 
     public function configureOptions(OptionsResolver $resolver)

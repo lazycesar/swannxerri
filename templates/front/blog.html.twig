@@ -11,7 +11,7 @@
                 <figcaption>
                     <time>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y') : "" }}</time>
                     <h3>{{ blog.title }}</h3>
-                    <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
+                    <p>{{ blog.content | slice (0, 80) | raw }}...</p>  
                     <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
                 </figcaption>
             </figure>
