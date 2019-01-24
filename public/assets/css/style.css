@@ -117,13 +117,14 @@ a {
 }
 
 .container-center {
-    width: 1024px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
+  width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+  max-width: 90%;
 }
 /*-----------------------------
 header
@@ -191,11 +192,10 @@ header
 Cover
 -----------------------------*/
 .cover {
-    height: 90vh;
-    position: relative;
-    display: flex;
-    clear: both;
-    overflow: auto;
+  height: 90vh;
+  position: relative;
+  display: flex;
+  clear: both;
 }
 .cover-left {
     background-image: url("/assets/img/photo_1.jpg");
@@ -236,9 +236,8 @@ Cover
 About
 -----------------------------*/
 .about {
-    display: flex;
-    height: 70%;
-    overflow: auto;
+  display: flex;
+  margin: 5rem 0px;
 }
 .about__left,
 .about__right {
@@ -291,13 +290,11 @@ Blog
     transform: translate(0, -50%);
 }
 .blog {
-    margin: 40px auto;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    height: 70%;
-    position: relative;
-    overflow: auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 5rem 0px;
 }
 
 .card {
@@ -349,13 +346,11 @@ Video
 -----------------------------*/
 
 .video {
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    height: 70%;
-    position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
+  margin: 5rem 0px;
 }
 .video {
     margin-bottom: 3rem;
@@ -364,13 +359,11 @@ Video
 Coaching
 -----------------------------*/
 .coaching {
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    height: 70%;
-    position: relative;
+  margin: 5rem 0px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
 }
 .coaching.container-center {
     flex-wrap: nowrap;
@@ -406,13 +399,13 @@ Coaching
 Cta-ebook
 -----------------------------*/
 .cta-ebook {
-    background-color: var(--softblue);
-    height: 20%;
-    margin: 9rem 0 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: var(--white);
+  background-color: var(--softblue);
+  margin: 5rem 0px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+  padding: 3rem 0;
 }
 .cta-ebook__copy {
     font-size: 1.5rem;
@@ -433,9 +426,9 @@ Formation
 -----------------------------*/
 
 .formation {
-    display: flex;
-    height: 70%;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  margin: 5rem 0px;
 }
 .formation__copy h2 {
     border-color: var(--white);
@@ -478,25 +471,23 @@ Formation
 }
 
 .feedback {
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    height: 70%;
-    position: relative;
+  margin: 40px auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  position: relative;
 }
 /*-----------------------------
 Feedback
 -----------------------------*/
 
 .card-feedback {
-    width: 30%;
-    margin: 0 1.5%;
-    position: relative;
-    padding: 1rem;
-    transition: all 0.3s ease-in;
-    background: transparent;
+  width: 30%;
+  position: relative;
+  padding: 1rem;
+  transition: all 0.3s ease-in;
+  background: transparent;
+  margin: 5rem 0;
 }
 .card-feedback__copy {
     padding: 0.7rem 0.7rem 2rem;
@@ -529,16 +520,16 @@ Feedback
 Cta
 -----------------------------*/
 .cta {
-    background-image: url(/assets/img/photo_3.jpg);
-    height: 50%;
-    margin: 9rem 0 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: var(--white);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: 56% 46%;
+  background-image: url(/assets/img/photo_3.jpg);
+  height: 50%;
+  margin: 5rem 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 56% 46%;
 }
 .cta__copy {
     font-size: 1.5rem;
@@ -577,10 +568,11 @@ Cta
 Brand
 -----------------------------*/
 .brand {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 5rem 0;
+  flex-wrap: wrap;
 }
 /*-----------------------------
 Footer
@@ -668,55 +660,85 @@ Tablet
 Smartphone
 -----------------------------*/
 @media (max-width: 767px) {
-    :root body {
-        font-size: 50%;
-    }
-    .header {
-        z-index: 100;
-        width: 100%;
-    }
-    .header__icon-bar {
-        display: block;
-    }
+  :root body {
+    font-size: 50%;
+  }
 
-    .header__menu {
-        width: 100%;
-        height: 0px;
-        overflow: hidden;
-    }
-    .header__menu__item {
-        display: block;
-    }
-    .is-open {
-        height: 300px;
-        overflow: auto;
-    }
+  /* General */
+  img {
+    min-width: inherit;
+  }
 
-    .cover,
-    .about {
-        flex-direction: column;
-    }
-    /* Cover */
-    .cover__caption {
-        padding: 2rem 0;
-        width: 90%;
-    }
-    .cover-left {
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    .cover-left,
-    .cover-right,
-    .about__left,
-    .about__right {
-        width: 100%;
-    }
+  .header {
+    z-index: 100;
+    width: 100%;
+  }
+  .header__icon-bar {
+    display: block;
+  }
 
-    /* Cards */
-    .card {
-        width: 90%;
-        margin: 5%;
-    }
+  .header__menu {
+    width: 100%;
+    height: 0px;
+    overflow: hidden;
+  }
+  .header__menu__item {
+    display: block;
+  }
+  .is-open {
+    height: 300px;
+    overflow: auto;
+  }
+
+  .cover,
+  .about {
+    flex-direction: column;
+  }
+  /* Cover */
+  .cover__caption {
+    padding: 2rem 0;
+    width: 90%;
+  }
+  .cover-left {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .cover-left,
+  .cover-right,
+  .about__left,
+  .about__right {
+    width: 100%;
+  }
+  /* About */
+  .about__left {
+    margin: 2rem 0;
+  }
+  .about__left__image {
+    width: 300px;
+    height: 350px;
+  }
+
+  /* Cards */
+  .card {
+    width: 90%;
+    margin: 5%;
+  }
+  /* Video */
+  .card-video {
+    margin: .5rem 0;
+  }
+  /* Coaching */
+  .coaching__copy{
+    width: 90%;
+    position: relative;
+    top: 58px;
+  }
+/* Brand */
+.brand figure {
+    flex: 0 1 50%;
+    display: flex;
+    justify-content: center;
+
 }
 
 @media screen and (max-width: 20em) {
