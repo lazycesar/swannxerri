@@ -9,6 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminLoginRepository")
+ * @UniqueEntity("email", message = "Un compte a déjà été enregistré avec cette adresse email.")
  */
 class AdminLogin implements UserInterface, \Serializable
 {
@@ -23,7 +24,7 @@ class AdminLogin implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=100)
      * @Assert\NotBlank
      * @Assert\Length(
-     *      min = 4,
+     *      min = 6,
      *      max = 100,
      *      minMessage = "Nom trop court {{ limit }}",
      *      maxMessage = "Nom trop long {{ limit }}"
