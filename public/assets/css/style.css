@@ -1,4 +1,5 @@
 :root {
+<<<<<<< HEAD
     --white: #fff;
     --darkblue: #2ec0f9;
     --softblue: #6cd2fa;
@@ -7,6 +8,15 @@
     --darkgrey: #666;
     --headershadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.75);
     --shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+=======
+  --white: #fff;
+  --darkblue: #2ec0f9;
+  --softblue: #6cd2fa;
+  --lightblue: #88dbfb;
+  --black: #0e1111;
+  --darkgrey: #666;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 
 :root body {
@@ -32,6 +42,13 @@ body {
 /*-----------------------------
 general
 -----------------------------*/
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+}
 
 .animate {
     -webkit-transition: all 0.3s ease-out;
@@ -74,10 +91,16 @@ h4 {
 }
 
 h2 {
+<<<<<<< HEAD
     font-size: 3rem;
     border-bottom: 3px solid var(--darkblue);
     display: inline-block;
     font-size: 2.5rem;
+=======
+  border-bottom: 3px solid var(--darkblue);
+  display: inline-block;
+  font-size: 2.5rem;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 button {
     border: none;
@@ -112,6 +135,7 @@ a {
 }
 
 .container-center {
+<<<<<<< HEAD
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -119,12 +143,22 @@ a {
     justify-content: space-around;
     align-content: center;
     align-items: center;
+=======
+  width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 /*-----------------------------
 header
 -----------------------------*/
 
 .header {
+<<<<<<< HEAD
     background: var(--white);
     display: flex;
     align-items: center;
@@ -138,12 +172,33 @@ header
     display: block;
     text-decoration: none;
     width: 150px;
+=======
+  background: var(--white);
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  text-transform: uppercase;
+  box-shadow: var(--shadow);
+  overflow: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header__logo {
+  color: var(--white);
+  display: block;
+  text-decoration: none;
+  width: 160px;
+  float: left;
+  padding: 0.75rem 0.5rem;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 .header__logo__img {
     max-width: 100%;
     height: auto;
 }
 .header__menu {
+<<<<<<< HEAD
     margin: 0;
     padding: 0;
     text-align: center;
@@ -155,8 +210,30 @@ header
     text-decoration: none;
     color: var(--darkgrey);
     text-align: center;
+=======
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  width: 80%;
+  float: right;
 }
+.header__menu__item {
+  width: 10%;
+  padding: 0.75rem 0.5rem;
+  margin: 0;
+  text-decoration: none;
+  color: var(--darkgrey);
+  text-align: center;
+  display: inline-block;
+}
+.header__menu__item a {
+  display: block;
+  text-decoration: none;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
+}
+
 .header__icon-bar {
+<<<<<<< HEAD
     display: block;
     padding: 20px;
     display: none;
@@ -198,16 +275,36 @@ hr {
     border: none;
     transition: 0.3s ease-in-out;
     margin-top: 0.5rem;
+=======
+  display: block;
+  float: right;
+  padding: 20px;
+  display: none;
 }
-
+.header__icon-bar span {
+  display: block;
+  height: 3px;
+  width: 30px;
+  background: var(--darkblue);
+  margin-bottom: 5px;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
+}
 /*-----------------------------
 Cover
 -----------------------------*/
 .cover {
+<<<<<<< HEAD
     height: 70%;
     position: relative;
     z-index: -1;
     display: flex;
+=======
+  height: 90vh;
+  position: relative;
+  display: flex;
+  clear: both;
+  overflow: auto;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 .cover-left {
     background-image: url("/assets/img/photo_1.jpg");
@@ -225,6 +322,7 @@ Cover
     align-items: center;
 }
 .cover__caption h1 {
+<<<<<<< HEAD
     border-bottom: 4px solid var(--white);
     padding-bottom: 2rem;
     font-size: 48px;
@@ -242,6 +340,18 @@ Cover
     width: calc(100% - 40%);
     min-width: 50%;
     color: var(--white);
+=======
+  border-bottom: 4px solid var(--white);
+  font-size: 2rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.cover__caption {
+  width: 66%;
+  min-width: 50%;
+  color: var(--white);
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 
 .cover--single {
@@ -255,8 +365,14 @@ Cover
 About
 -----------------------------*/
 .about {
+<<<<<<< HEAD
     display: flex;
     height: 70%;
+=======
+  display: flex;
+  height: 70%;
+  overflow: auto;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 .about__left,
 .about__right {
@@ -309,6 +425,7 @@ Blog
     transform: translate(0, -50%);
 }
 .blog {
+<<<<<<< HEAD
     max-width: 1200px;
     margin: 40px auto;
     display: flex;
@@ -316,6 +433,15 @@ Blog
     flex-wrap: wrap;
     height: 70%;
     position: relative;
+=======
+  margin: 40px auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 70%;
+  position: relative;
+  overflow: auto;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 
 .card {
@@ -367,6 +493,7 @@ Video
 -----------------------------*/
 
 .video {
+<<<<<<< HEAD
     max-width: 1200px;
     margin: 40px auto;
     display: flex;
@@ -374,6 +501,16 @@ Video
     flex-wrap: wrap;
     height: 70%;
     position: relative;
+=======
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 70%;
+  position: relative;
+  overflow: auto;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 .video {
     margin-bottom: 3rem;
@@ -382,6 +519,7 @@ Video
 Coaching
 -----------------------------*/
 .coaching {
+<<<<<<< HEAD
     max-width: 1200px;
     margin: 40px auto;
     display: flex;
@@ -389,6 +527,15 @@ Coaching
     flex-wrap: wrap;
     height: 70%;
     position: relative;
+=======
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 80%;
+  position: relative;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 .coaching.container-center {
     flex-wrap: nowrap;
@@ -424,19 +571,247 @@ Coaching
 Cta-ebook
 -----------------------------*/
 .cta-ebook {
+<<<<<<< HEAD
     background-color: var(--darkblue);
     height: 20%;
+=======
+  background-color: var(--softblue);
+  height: 20%;
+  margin: 9rem 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+}
+.cta-ebook__copy {
+  font-size: 1.5rem;
+}
+.cta-ebook__input,
+.cta-ebook__submit {
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+}
+.cta-ebook__submit {
+  font-weight: 700;
+  background-color: var(--darkblue);
+  color: var(--white);
+}
+/*-----------------------------
+Formation
+-----------------------------*/
+
+.formation {
+  display: flex;
+  height: 70%;
+  align-items: center;
+}
+.formation__copy h2 {
+  border-color: var(--white);
+}
+.formation__left,
+.formation__right {
+  width: 50%;
+}
+
+.formation__left__figure {
+  position: relative;
+  background-color: var(--softblue);
+  height: 64%;
+  width: 100%;
+}
+.formation__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: var(--softblue);
+  color: var(--white);
+  padding: 3rem 0;
+  width: 100%;
+}
+.formation__left__image {
+  object-fit: cover;
+  object-position: top;
+  width: 400px;
+  height: 500px;
+  box-shadow: var(--shadow);
+}
+.formation__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formation__copy {
+  width: 80%;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
+}
+
+.feedback {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  height: 70%;
+  position: relative;
+}
+/*-----------------------------
+Feedback
+-----------------------------*/
+
+.card-feedback {
+  width: 30%;
+  margin: 0 1.5%;
+  position: relative;
+  padding: 1rem;
+  transition: all 0.3s ease-in;
+  background: transparent;
+}
+.card-feedback__copy {
+  padding: 0.7rem 0.7rem 2rem;
+}
+.card-feedback__copy:hover {
+  box-shadow: var(--shadow);
+}
+.card-feedback__image figure {
+  width: 80px;
+  height: 80px;
+  background-color: var(--darkblue);
+  border-radius: 50%;
+}
+.card-feedback__name {
+  margin-left: 1rem;
+  align-self: self-end;
+}
+.card-feedback__name h2 {
+  color: var(--darkblue);
+  font-size: 1rem;
+  border-width: 2px;
+}
+.card-feedback__title {
+  display: flex;
+  position: absolute;
+  bottom: -47px;
+  left: 10%;
+}
+/*-----------------------------
+Cta
+-----------------------------*/
+.cta {
+  background-image: url(/assets/img/photo_3.jpg);
+  height: 50%;
+  margin: 9rem 0 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 56% 46%;
+}
+.cta__copy {
+  font-size: 1.5rem;
+}
+.cta__input,
+.cta__submit {
+  border: none;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+}
+.cta__submit {
+  font-weight: 700;
+  background-color: var(--darkblue);
+  color: var(--white);
+}
+.cta__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cta__text h1 {
+  font-size: 5rem;
+  margin: 1rem 0;
+}
+.cta__text h2 {
+  border: none;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+.cta__text .button {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 /*-----------------------------
+Brand
+-----------------------------*/
+.brand {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30%;
+}
+/*-----------------------------
 Footer
 -----------------------------*/
-
+.cls-1 {
+  fill: var(--white);
+}
+.cls-2 {
+  fill: var(--white);
+}
+.cls-3 {
+  fill: var(--white);
+}
 .footer {
+<<<<<<< HEAD
     background: #333;
     padding: 30px;
     color: var(--white);
     margin-top: 40px;
+=======
+  background: var(--softblue);
+  padding: 30px 0;
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  justify-content: space-around;
+}
+.footer-logo {
+  width: 160px;
+}
+.footer-section {
+  color: var(--white);
+}
+.footer-section h2 {
+  border-bottom: 1px solid var(--white);
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+.footer-section ul {
+  line-height: 1.5rem;
+  font-size: 0.8rem;
+}
+.footer__input,
+.footer__submit {
+  border: none;
+  font-size: 1rem;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+}
+.footer__form {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+}
+
+.footer__submit {
+  font-weight: 700;
+  background-color: var(--darkblue);
+  color: var(--white);
+  cursor: pointer;
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 }
 
 /*-----------------------------
@@ -470,6 +845,7 @@ Tablet
 Smartphone
 -----------------------------*/
 @media (max-width: 767px) {
+<<<<<<< HEAD
     .header {
         position: fixed;
         z-index: 100;
@@ -478,6 +854,18 @@ Smartphone
     .header__icon-bar {
         display: block;
     }
+=======
+  :root body {
+    font-size: 50%;
+  }
+  .header {
+    z-index: 100;
+    width: 100%;
+  }
+  .header__icon-bar {
+    display: block;
+  }
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 
     .header__menu {
         width: 100%;
@@ -492,14 +880,48 @@ Smartphone
         overflow: auto;
     }
 
+<<<<<<< HEAD
     /* Cover */
     .cover {
         height: 100%;
     }
+=======
+  .cover,
+  .about {
+    flex-direction: column;
+  }
+  /* Cover */
+  .cover__caption {
+    padding: 2rem 0;
+    width: 90%;
+  }
+  .cover-left {
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .cover-left,
+  .cover-right,
+  .about__left,
+  .about__right {
+    width: 100%;
+  }
+>>>>>>> e3bb385bf589c72499eaa4d027f2b79e200b536f
 
     /* Cards */
     .card {
         width: 90%;
         margin: 5%;
     }
+}
+
+@media screen and (max-width: 20em) {
+}
+@media screen and (min-width: 20em) {
+}
+@media screen and (min-width: 40em) {
+}
+@media screen and (min-width: 60em) {
+}
+
+@media screen and (min-width: 80em) {
 }
