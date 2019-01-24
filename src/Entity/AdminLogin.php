@@ -26,8 +26,8 @@ class AdminLogin implements UserInterface, \Serializable
      * @Assert\Length(
      *      min = 6,
      *      max = 100,
-     *      minMessage = "Nom trop court {{ limit }}",
-     *      maxMessage = "Nom trop long {{ limit }}"
+     *      minMessage = "Votre nom d'utilisateur doit comporter au moins 6 caractères. {{ limit }}",
+     *      maxMessage = "Votre nom d'utilisateur ne peut comporter plus de 100 caractères. {{ limit }}"
      * )
      */
     private $username;
