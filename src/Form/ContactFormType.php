@@ -8,19 +8,18 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ContactFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('prenom')
-            ->add('nom')
+            ->add('prenom', TextType::class, ["label" => "Prénom", "attr" => ["placeholder" => "Entrez votre prénom"]])
+            ->add('nom', TextType::class, ["label" => "Nom", "attr" => ["placeholder" => "Entrez votre nom"]])
+            ->add('email', TextType::class, ["label" => "Email", "attr" => ["placeholder" => "Entrez votre adresse email"]])
             ->add('objet', ChoiceType::class, ["choices" => ["Informations coaching personnel" => "Perso", "Informations coaching profesionnel" => "Pro", "Informations conférences" => "Conférence", "Autre demande" => "Autre"]])
-            ->add('email')
-            ->add('contenu', TextareaType::class);
-
+            ->add('contenu', TextareaType::class, ["label" => "Message", "attr" => ["placeholder" => "Quel est votre message ?"]]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

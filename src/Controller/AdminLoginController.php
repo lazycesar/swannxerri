@@ -108,10 +108,10 @@ class AdminLoginController extends AbstractController
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->flush();
 
-                        $messageConfirmation = "Merci, votre compte est désormais actif";
+                        $messageConfirmation = "Merci, votre compte est désormais actif.";
                         return $this->redirectToRoute('membre');
                     } else {
-                        $messageConfirmation = "La date de validité de la clé d'activation a expiré. Veuillez recommencer votre inscription";
+                        $messageConfirmation = "La date de validité de la clé d'activation a expiré. Veuillez recommencer votre inscription.";
                     }
                 }
             } else {
