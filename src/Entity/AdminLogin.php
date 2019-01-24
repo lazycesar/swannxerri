@@ -34,6 +34,13 @@ class AdminLogin implements UserInterface, \Serializable
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 100,
+     *      minMessage = "Votre mot de passe doit comporter au moins 8 caractères.",
+     *      maxMessage = "Votre mot de passe ne peut comporter plus de 100 caractères."
+     * )
      */
     private $password;
 

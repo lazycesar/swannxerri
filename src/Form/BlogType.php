@@ -10,8 +10,6 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
-
-
 class BlogType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -20,7 +18,6 @@ class BlogType extends AbstractType
             ->add('title', TextType::class, ["label" => "Titre"])
             ->add('uploadImage', FileType::class, ["label" => "URL de l'image"])
             ->add('content', CKEditorType::class, ["label" => "Contenu"]);
-            // ->add('publicationDate');
     }
 
     public function configureOptions(OptionsResolver $resolver)
