@@ -83,7 +83,7 @@ class AdminLoginController extends AbstractController
     /**
      * @Route("/activation", name="activation", methods={"GET","POST"})
      */
-    public function activation(/*ArticleRepository $articleRepository,*/AdminLoginRepository $adminLoginRepository, Request $request, \Swift_Mailer $mailer) : Response
+    public function activation(AdminLoginRepository $adminLoginRepository, Request $request, \Swift_Mailer $mailer) : Response
     {
 
         $email = $request->get("email");
