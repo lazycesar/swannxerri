@@ -3,21 +3,31 @@
 {% block title %}Liste des articles{% endblock %}
 {% block body %}
 
-
-    <section id="blog-page" class="flex-center">   
-    {% for blog in blogs %}
-        <article>
-            <figure><img src={{ blog.image }} alt="photo" width="300px">
-                <figcaption>
-                    <time>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y') : "" }}</time>
-                    <h3>{{ blog.title }}</h3>
-                    <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
-                    <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
-                </figcaption>
-            </figure>
-        </article>
-    {% endfor %}
-    </section>
+    <main id="blog-page">   
+            <section class="cover cover-single cover-blog">
+                <div class="cover-single__text">
+                    <span class="breadcrumb"> Home - Articles </span>
+                    <h1 class="page-single-h1">Articles</h1>
+                    <p>Obtenez la motivation, les conseils et le soutien dont vous avez besoin pour mettre votre vie sur les rails. Si vous voulez attirer la richesse, le succès et le bonheur, alors nos cours de coaching en ligne sont pour vous.</p>
+                </div>
+            </section>  
+            <section class="flex-center">   
+            {% for blog in blogs %}
+            <a href="#">
+                <article>
+                    <figure><img src={{ blog.image }} alt="photo" width="300px">
+                        <figcaption>
+                            <time>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y') : "" }}</time>
+                            <h3 class="post-title">{{ blog.title }}</h3>
+                            <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
+                            <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
+                        </figcaption>
+                    </figure>
+                </article>
+            </a>
+            {% endfor %}
+            </section>
+    </main>
 
 
 {% endblock body %}
