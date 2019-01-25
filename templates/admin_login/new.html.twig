@@ -1,11 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'front-base.html.twig' %}
 
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
     <h1>Créez votre compte</h1>
 
-    {{ include('admin_login/_form.html.twig') }} <p>Vous pourrez accéder à votre espace membre après l'activation de votre compte. Veuillez consulter vos emails.</p>
+    {{ include('admin_login/_form.html.twig') }} 
+    <p>Vous pourrez accéder à votre espace membre après l'activation de votre compte. Veuillez consulter vos emails.</p>
 
     {# <a href="{{ path('admin_login_index') }}">back to list</a> #}
 {% endblock %}

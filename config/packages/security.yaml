@@ -5,6 +5,7 @@ security:
         # Le nom du path s'ajoute avant le nom du fichier à atteindre. Voir le use_referer.
         - { path: ^/adminswann, roles: ROLE_ADMIN }
         - { path: ^/signup/index, roles: ROLE_ADMIN }
+        - { path: ^/contact/index, roles: ROLE_ADMIN }
         - { path: ^/membres, roles: ROLE_MEMBRE }
     providers:
         mon_login:

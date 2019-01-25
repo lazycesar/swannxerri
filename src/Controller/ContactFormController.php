@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/adminswann/contact")
+ * @Route("/contact")
  */
 class ContactFormController extends AbstractController
 {
     /**
-     * @Route("/", name="contact_form_index", methods={"GET"})
+     * @Route("/index", name="contact_form_index", methods={"GET"})
      */
     public function index(ContactFormRepository $contactFormRepository) : Response
     {
@@ -26,7 +26,7 @@ class ContactFormController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="contact_form_new", methods={"GET","POST"})
+     * @Route("/form", name="contact_form_new", methods={"GET","POST"})
      */
     public function new(Request $request, \Swift_Mailer $mailer) : Response
     {
@@ -77,7 +77,7 @@ class ContactFormController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="contact_form_show", methods={"GET"})
+     * @Route("/index/{id}", name="contact_form_show", methods={"GET"})
      */
     public function show(ContactForm $contactForm) : Response
     {
@@ -87,7 +87,7 @@ class ContactFormController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="contact_form_edit", methods={"GET","POST"})
+     * @Route("/index/{id}/edit", name="contact_form_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, ContactForm $contactForm) : Response
     {
@@ -109,7 +109,7 @@ class ContactFormController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="contact_form_delete", methods={"DELETE"})
+     * @Route("/index/{id}", name="contact_form_delete", methods={"DELETE"})
      */
     public function delete(Request $request, ContactForm $contactForm) : Response
     {
