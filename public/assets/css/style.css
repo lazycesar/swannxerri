@@ -34,11 +34,6 @@ html {
   --darkgrey: #666;
   --shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
 }
-
-:root body {
-  /* font-size: 62.5%; */
-}
-
 *,
 *:before,
 *:after {
@@ -464,9 +459,6 @@ Cta-ebook
   color: var(--white);
   padding: 3rem 0;
 }
-.cta-ebook__copy {
-  /* font-size: 1.5rem; */
-}
 .cta-ebook__input,
 .cta-ebook__submit {
   border: none;
@@ -773,6 +765,7 @@ Single: Formation
 .content-row {
   display: flex;
   margin: 5rem 0px;
+  align-items: baseline;
 }
 .content-left,
 .content-right {
@@ -819,6 +812,21 @@ Single: Contact-Page
 -----------------------------*/
 .cover-contact {
   background-image: url("/assets/img/contact.jpg");
+  background-position: 50% 100%;
+}
+.contact-icons {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+.icon {
+  width: 50px;
+  display: inline-block;
+  height: 50px;
+  margin-right: 1rem;
+}
+.icon img {
+  width: 100%;
 }
 
 /*-----------------------------
