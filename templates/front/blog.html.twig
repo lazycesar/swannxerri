@@ -13,18 +13,18 @@
             </section>  
             <section class="flex-center">   
             {% for blog in blogs %}
-            <a href="#">
+            {# <a href="#"> #}
                 <article>
                     <figure><img src={{ blog.image }} alt="photo" width="300px">
                         <figcaption>
                             <time>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y') : "" }}</time>
                             <h3 class="post-title">{{ blog.title }}</h3>
-                            <p>{{ blog.content | slice (0, 80) | raw }}...</p>  
-                            <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
+                            <p>{{ blog.content | slice (0, 50) | raw }}...</p>  
+                            <a class="read-more" href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a>
                         </figcaption>
                     </figure>
                 </article>
-            </a>
+            {# </a> #}
             {% endfor %}
             </section>
     </main>

@@ -1,11 +1,37 @@
-{% extends 'base.html.twig' %}
+{% extends 'front-base.html.twig' %}
 
-{% block title %}New ContactForm{% endblock %}
+{% block title %}Swann Xerri - Contact{% endblock %}
 
 {% block body %}
-    <h1>Create new ContactForm</h1>
 
-    {{ include('contact_form/_form.html.twig') }}
+    <main id="contact-page">   
+        <section class="cover cover-single cover-contact">
+            <div class="cover-single__text">
+                <span class="breadcrumb"> Home - contact </span>
+				<h1 class="page-single-h1">Je suis là pour vous</h1>
+                <p>Nous savons tous combien la vie peut être difficile et difficile. Et qu'il n'y a pas toujours de réponse à tous les problèmes que vous pouvez rencontrer. Nous sommes là pour vous aider.</p>
+            </div>
+        </section>        
+            <div class="container-center cflex">
+                <section class="content-row">
+                    <div class="content-left">
+                        <div class="content-right__text">
+                            <h2>Prenez contact avec moi</h2>
+                            <p class="subtitle">Je n'en suis pas sûr, mais je suis content que tu sois là.</p>
+                            <p class="contact-icons"><span class="icon"><img src="/assets/img/email.svg" alt=""></span> info@swannxerri.com</p>
+                            <p class="contact-icons"><span class="icon"><img src="/assets/img/phone.svg" alt=""></span> info@swannxerri.com</p>
+                            <p class="contact-icons"><span class="icon"><img src="/assets/img/location.svg" alt=""></span> info@swannxerri.com</p>
+                        </div>
+                    </div>
+                    <div class="content-right">
+                        <div class="content-right__text">
+                            {{ include('contact_form/_form.html.twig') }}
+                                <a href="{{ path('contact_form_index') }}">back to list</a>
 
-    <a href="{{ path('contact_form_index') }}">back to list</a>
+                        </div>
+                    </div>	
+	            </section>
+                
+            </div>{# end container center #}        
+    </main>
 {% endblock %}
