@@ -765,7 +765,7 @@ Single: Formation
 .content-row {
   display: flex;
   margin: 5rem 0px;
-  align-items: baseline;
+  width: 100%;
 }
 .content-left,
 .content-right {
