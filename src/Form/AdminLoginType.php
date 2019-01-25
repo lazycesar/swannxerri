@@ -24,7 +24,7 @@ class AdminLoginType extends AbstractType
             ->add('username', TextType::class, ["label" => "Nom d'utilisateur", "attr" => ["placeholder" => "Votre nom d'utilisateur doit comporter au moins 6 caractères."]])
             ->add("password", RepeatedType::class, [
                 "type" => PasswordType::class,
-                "invalid_message" => "Vous avez entré deux mots de passe différents.",
+                "invalid_message" => "Les deux mots de passe doivent être identiques.",
                 "options" => ["attr" => ["class" => "password-field"]],
                 "required" => true,
                 "first_options" => ["label" => "Mot de passe", "attr" => ["placeholder" => "Entrez votre mot de passe"]],

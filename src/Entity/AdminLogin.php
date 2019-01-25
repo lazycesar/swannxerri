@@ -92,6 +92,11 @@ class AdminLogin implements UserInterface, \Serializable
      */
     protected $captchaCode;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $cle_recup_mdp;
+
     public function getCaptchaCode()
     {
         return $this->captchaCode;
@@ -269,6 +274,18 @@ class AdminLogin implements UserInterface, \Serializable
     public function setDateLimiteActivation(\DateTimeInterface $date_limite_activation) : self
     {
         $this->date_limite_activation = $date_limite_activation;
+
+        return $this;
+    }
+
+    public function getCleRecupMdp(): ?string
+    {
+        return $this->cle_recup_mdp;
+    }
+
+    public function setCleRecupMdp(?string $cle_recup_mdp): self
+    {
+        $this->cle_recup_mdp = $cle_recup_mdp;
 
         return $this;
     }

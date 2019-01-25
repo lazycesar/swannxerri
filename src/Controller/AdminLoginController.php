@@ -103,7 +103,7 @@ class AdminLoginController extends AbstractController
 
                         $userCherche->setLevel(1);
                         $userCherche->setCleActivation(md5(uniqid()));
-                        $userCherche->setDateLimiteActivation(new \DateTime("+1 week"));
+                        $userCherche->setDateLimiteActivation(new \DateTime("+1 day"));
 
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->flush();
@@ -128,6 +128,17 @@ class AdminLoginController extends AbstractController
             'cleActivation' => $cleActivation,
             'messageConfirmation' => $messageConfirmation ?? "",
         ]);
+    }
+
+    /**
+     * @Route("/lostpw", name="lostpw", methods={"GET","POST"})
+     */
+    public function lostpw() : Response
+    {
+
+
+
+        return $this->render('admin_login/lostpw.html.twig', []);
     }
 
     /**
