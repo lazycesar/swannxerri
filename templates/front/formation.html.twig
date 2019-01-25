@@ -108,62 +108,70 @@
                         <div class="content-right__text">
                             <h2>Les clés de la performance collective :</h2>
                             <p>S'il est primordial d’avoir un meilleur contrôle de soi et de se sentir prêt à affronter
-toutes les situations de la vie, il est tout aussi important de maîtriser notre relation avec
-les autres, de savoir s’entourer des bonnes personnes, mais aussi d’être capable d’offrir
-à notre entourage ce que l’on a de meilleur : notre présence, notre écoute et notre
-bienveillance. Que vous vous sentiez seul en ayant envie de vous ouvrir aux autres, ou si
-vous êtes déjà bien entourés mais que vous souhaitez avoir de meilleures relations avec
-les autres : dans tous les cas, cette partie correspondra parfaitement à vos attentes.
+                            toutes les situations de la vie, il est tout aussi important de maîtriser notre relation avec
+                            les autres, de savoir s’entourer des bonnes personnes, mais aussi d’être capable d’offrir
+                            à notre entourage ce que l’on a de meilleur : notre présence, notre écoute et notre
+                            bienveillance. Que vous vous sentiez seul en ayant envie de vous ouvrir aux autres, ou si
+                            vous êtes déjà bien entourés mais que vous souhaitez avoir de meilleures relations avec
+                            les autres : dans tous les cas, cette partie correspondra parfaitement à vos attentes.
                             </p>
                         </div>
                     </div>	
 	            </section>
+                
                 <div id="paypal-button"></div>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script>
-  paypal.Button.render({
-    // Configure environment
-    env: 'sandbox',
-    client: {
-      sandbox: 'demo_sandbox_client_id',
-      production: 'demo_production_client_id'
-    },
-    // Customize button (optional)
-    locale: 'fr_FR',
-    style: {
-      size: 'medium',
-      color: 'blue',
-      shape: 'pill',
-    },
+                
+                <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                <script>
+                paypal.Button.render({
+                    // Configure environment
+                    env: 'sandbox',
+                    client: {
+                    sandbox: 'demo_sandbox_client_id',
+                    production: 'demo_production_client_id'
+                    },
+                    // Customize button (optional)
+                    locale: 'fr_FR',
+                    style: {
+                    size: 'medium',
+                    color: 'blue',
+                    shape: 'pill',
+                    },
 
-    // Enable Pay Now checkout flow (optional)
-    commit: true,
+                    // Enable Pay Now checkout flow (optional)
+                    commit: true,
 
-    // Set up a payment
-    payment: function(data, actions) {
-      return actions.payment.create({
-        transactions: [{
-          amount: {
-            total: '0.01',
-            currency: 'USD'
-          }
-        }]
-      });
-    },
-    // Execute the payment
-    onAuthorize: function(data, actions) {
-      return actions.payment.execute().then(function() {
-        // Show a confirmation message to the buyer
-        window.alert('Merci pour votre confiance !');
-        window.setTimeout(function(){
-        window.location.href = "http://127.0.0.1:8000/signup/paiement-confirmation/";
-    }, 1000);
-      });
-    }
-  }, '#paypal-button');
+                    // Set up a payment
+                    payment: function(data, actions) {
+                    return actions.payment.create({
+                        transactions: [{
+                        amount: {
+                            total: '0.01',
+                            currency: 'USD'
+                        }
+                        }]
+                    });
+                    },
+                    // Execute the payment
+                    onAuthorize: function(data, actions) {
+                    return actions.payment.execute().then(function() {
+                        // Show a confirmation message to the buyer
+                        window.alert('Merci pour votre confiance !');
+                        window.setTimeout(function(){
+                        window.location.href = "http://127.0.0.1:8000/signup/paiement-confirmation/";
+                    }, 1000);
+                    });
+                    }
+                }, '#paypal-button');
 
-</script>
+                </script>
             </div>{# end container center #}    
+            <section class="banner banner-about">
+                    <div class="banner__text">
+                        <h1>Imagine </h1>
+                        <h2>Les Seules limites sont celles que tu te fixes</h2>
+                    </div>
+            </section>
     </main>
 
 
