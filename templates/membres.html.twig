@@ -12,69 +12,6 @@
 
     {# <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppppcmcvdam.png" alt="Pay with PayPal, PayPal Credit or any major credit card" /> #}
 
-    <div id="paypal-button"></div>
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
-<script>
-  paypal.Button.render({
-    // Configure environment
-    env: 'sandbox',
-    client: {
-      sandbox: 'demo_sandbox_client_id',
-      production: 'demo_production_client_id'
-    },
-    // Customize button (optional)
-    locale: 'fr_FR',
-    style: {
-      size: 'medium',
-      color: 'blue',
-      shape: 'pill',
-    },
-
-    // Enable Pay Now checkout flow (optional)
-    commit: true,
-
-    // Set up a payment
-payment: function(data, actions) {
-  return actions.payment.create({
-    transactions: [{
-      amount: {
-        total: '99',
-        currency: 'EUR',
-        
-      },
-      description: 'The payment transaction description.',
-      custom: '90048630024435',
-      //invoice_number: '12345', Insert a unique invoice number
-      payment_options: {
-        allowed_payment_method: 'INSTANT_FUNDING_SOURCE'
-      },
-      soft_descriptor: 'ECHI5786786',
-      item_list: {
-        items: [
-        {
-          name: 'Programme "Architecte de ta vie"',
-          description: 'E-formation',
-          quantity: '1',
-          price: '99',
-          currency: 'EUR'
-        }],
-      }
-    }],
-    note_to_payer: 'Contactez-moi si vous avez des questions.'
-  });
-},
-        
-    // Execute the payment
-    onAuthorize: function(data, actions) {
-      return actions.payment.execute().then(function() {
-        // Show a confirmation message to the buyer
-        window.alert('Merci pour votre confiance !');
-      });
-    }
-  }, '#paypal-button');
-
-</script>
-
     <section>
         <iframe width="365" height="205" src="https://www.youtube.com/embed/4koivVkJagc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <h3>titre</h3>

@@ -140,6 +140,15 @@ class AdminLoginController extends AbstractController
     }
 
     /**
+     * @Route("/paiement-confirmation", name="payment_confirm", methods={"GET","POST"})
+     */
+    public function paymentConfirm() : Response
+    {
+
+        return $this->render('admin_login/payment-confirm.html.twig', []);
+    }
+
+    /**
      * @Route("/index/show/{id}", name="admin_login_show", methods={"GET"})
      */
     public function show(AdminLogin $adminLogin) : Response

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement confirmé{% endblock %}
+
+{% block body %}
+    <h1>Confirmation de paiement</h1>
+    <p>Votre paiement a bien été enregistré.</p>
+    <p>Vous allez être dirigé vers la page d'inscription.</p>
+
+<script>window.setTimeout(function(){
+        window.location.href = "http://127.0.0.1:8000/signup/";
+    }, 5000);</script>
+{% endblock %}

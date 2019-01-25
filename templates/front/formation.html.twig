@@ -118,9 +118,52 @@ les autres : dans tous les cas, cette partie correspondra parfaitement à vos at
                         </div>
                     </div>	
 	            </section>
-            </div>{# end container center #}
+                <div id="paypal-button"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'demo_sandbox_client_id',
+      production: 'demo_production_client_id'
+    },
+    // Customize button (optional)
+    locale: 'fr_FR',
+    style: {
+      size: 'medium',
+      color: 'blue',
+      shape: 'pill',
+    },
 
-        
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '0.01',
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('Merci pour votre confiance !');
+        window.setTimeout(function(){
+        window.location.href = "http://127.0.0.1:8000/signup/paiement-confirmation/";
+    }, 1000);
+      });
+    }
+  }, '#paypal-button');
+
+</script>
+            </div>{# end container center #}    
     </main>
 
 
