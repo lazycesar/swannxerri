@@ -27,8 +27,8 @@
                 <td>{{ blog.id }}</td>
                 <td>{{ blog.title }}</td>
                 <td>{{ blog.image }}</td>
-                <td>{{ blog.content }}</td>
-                <td>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y H:i:s') : '' }}</td>
+                <td>{{ blog.content | striptags | slice (0, 50) }}...</td>
+                <td>{{ blog.publicationDate ? blog.publicationDate|date('d/m/Y H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('blog_show', {'id': blog.id}) }}">Afficher</a>
                     <a href="{{ path('blog_edit', {'id': blog.id}) }}">Éditer</a>

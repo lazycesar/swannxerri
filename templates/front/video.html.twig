@@ -1,0 +1,31 @@
+{% extends 'front-base.html.twig' %}
+
+{% block title %}Vidéos - Swann Xerri{% endblock %}
+
+{% block body %}
+
+    <main id="blog-page">   
+            <section class="cover cover-single cover-blog">
+                <div class="cover-single__text">
+                    <span class="breadcrumb"> Home - Vidéos </span>
+                    <h1 class="page-single-h1">Vidéos</h1>
+                    <p>Swann vous adresse quelques conseils qui vous permettront d'avoir la motivation nécessaire pour croire en vous-même !</p>
+                </div>
+            </section>  
+            <section class="flex-center">   
+            {% for video in videos %}
+            {# <a href="#"> #}
+                <article>
+                <iframe {{ video.video | raw }}></iframe>
+                            <p>Ajoutée le {{ video.datePublication ? video.datepublication|date('d/m/Y H:i') : "" }}</p>
+                            <h3 class="post-title">{{ video.title }}</h3>
+                            <p>{{ video.description }}</p>  
+                            <p>Durée : {{ video.length }}</p>  
+                </article>
+            {# </a> #}
+            {% endfor %}
+            </section>
+    </main>
+
+
+{% endblock body %}

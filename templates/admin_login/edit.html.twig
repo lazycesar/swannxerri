@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit AdminLogin{% endblock %}
+{% block title %}Édition des utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>Edit AdminLogin</h1>
+    <h1>Édition d'un utilisateur</h1>
 
-    {{ include('admin_login/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin_login/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('admin_login_index') }}">back to list</a>
+    <a href="{{ path('admin_login_index') }}">Retour à la liste</a>
 
     {{ include('admin_login/_delete_form.html.twig') }}
 {% endblock %}

@@ -26,7 +26,7 @@ class ContactFormController extends AbstractController
     }
 
     /**
-     * @Route("/", name="contact_form_new", methods={"GET","POST"})
+     * @Route("/", name="contact", methods={"GET","POST"})
      */
     public function new(Request $request, \Swift_Mailer $mailer) : Response
     {

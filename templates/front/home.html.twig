@@ -44,8 +44,8 @@
 				<div class="coaching__copy">
 					<h3 class="post-title">Coaching en Entreprise</h3>
 					<p>Et si vous donniez un nouvel élan à votre carrière professionnelle tout en développant vos qualités personnelles ?</p> {{ "\n" | nl2br}}
-					<p>Bénéficiez d'un accompagnement en management, communication, leadership qui vous donnera les clés de la performance au bénéfice de  l'entreprise.</p>
-					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+					<p>Bénéficiez d'un accompagnement en management, communication, leadership qui vous donnera les clés de la performance au bénéfice de l'entreprise.</p>
+					<a href="{{ url("professionnel") }}"><button class="read-more">EN SAVOIR PLUS</button></a>
 				</div>
 			</div>
 			<div class="card-coaching">
@@ -53,8 +53,8 @@
 				<div class="coaching__copy">
 					<h3 class="post-title">Coaching Personnel</h3>
 					<p>Besoin d'un petit coup de pouce pour libérer votre potentiel ? Ou pour vous libérer de vos pensées négatives ?</p> {{ "\n" | nl2br}}
-					<p>Épanouissez-vous en découvrant la personne que vous êtes et acquérez la confiance en soi nécessaire pour déterminer votre avenir.</p>
-					<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+					<p>Épanouissez-vous en découvrant la personne que vous êtes et acquérez la confiance en soi nécessaire pour déterminer votre avenir. N'hésitez plus : agissez !</p>
+					<a href="{{ url("particulier") }}"><button class="read-more">EN SAVOIR PLUS</button></a>
 				</div>
 			</div>				
 		</div>{# end container center #}
@@ -64,9 +64,9 @@
 		<div class="formation__left flexitem-auto">
 			<div class="formation__copy">
 				<h2>e-Formation</h2>
-				<p>Formez-vous à votre rythme grace a nos packs de coaching vidéo!
+				<p>Formez-vous à votre rythme grace a nos packs de coaching vidéo !
 				</p>
-				<a href="#"><button class="read-more">EN SAVOIR PLUS</button></a>
+				<a href="{{ url("formation") }}"><button class="read-more">EN SAVOIR PLUS</button></a>
 			</div>			
 		</div>
 		<div class="formation__right flexitem-auto">
@@ -93,14 +93,15 @@
 				<h2 class="">Conseils d'ami</h2>
 				<p class="subtitle">Pour vous rendre la vie plus légère, voici quelques conseils d'ami</p>
 			</div>
+			
 			<div class="card-video">
 				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0" height="300px" controls="2" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			<div class="card-video">
-				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="100%"  src="https://www.youtube.com/embed/3SPbAqmvgCY" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			<div class="card-video">
-				<iframe width="100%"  src="https://www.youtube.com/embed/aN9ZqoZ5LjU" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<iframe width="100%"  src="https://www.youtube.com/embed/4J477Hp138Q" frameborder="0"height="300px" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 			{# <button class="button buttonflex">YouTube</button>			 #}
 		</div>{# end container center #}
@@ -200,8 +201,9 @@
     <section class="cta">
 		<div class="cta__text">
 				<h1>Besoin d'un conseil ? </h1>
-				<h3>I don’t know who you are, but I will find you and I will help you.</h3>
-				<a href="" class="button"> contactez moi!</a>
+				<h3>Vous souhaitez gagner en performance professionnelle ou épanouissement personnel ?</h3>
+				<h3>Permettez-moi de vous y aider.</h3>
+				<a href="{{ url("contact") }}" class="button">Contactez-moi !</a>
 			</div>
 	</section>
 

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des vidéos{% endblock %}
+
+{% block body %}
+    <h1>Liste des vidéos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Vidéo</th>
+                <th>Description</th>
+                <th>Durée</th>
+                <th>Date de publication</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for video in videos %}
+            <tr>
+                <td>{{ video.id }}</td>
+                <td>{{ video.title }}</td>
+                <td>{{ video.video }}</td>
+                <td>{{ video.description }}</td>
+                <td>{{ video.length }}</td>
+                <td>{{ video.datePublication ? video.datePublication|date('d/m/Y H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('video_show', {'id': video.id}) }}">Afficher</a>
+                    <a href="{{ path('video_edit', {'id': video.id}) }}">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('video_new') }}">Ajouter une nouvelle vidéo</a>
+{% endblock %}

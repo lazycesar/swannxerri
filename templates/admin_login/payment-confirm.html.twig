@@ -5,9 +5,11 @@
 {% block body %}
     <h1>Confirmation de paiement</h1>
     <p>Votre paiement a bien été enregistré.</p>
-    <p>Vous allez être dirigé vers la page d'inscription.</p>
+    <p>Vous allez être redirigé vers la page d'accès à l'espace membre.</p>
 
-<script>window.setTimeout(function(){
+<script>
+    window.setTimeout(function(){
         window.location.href = "http://127.0.0.1:8000/signup/";
-    }, 5000);</script>
+        }, 5000);
+</script>
 {% endblock %}

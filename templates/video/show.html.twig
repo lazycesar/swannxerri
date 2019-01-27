@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vidéo{% endblock %}
+
+{% block body %}
+    <h1>Détails</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ video.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ video.title }}</td>
+            </tr>
+            <tr>
+                <th>Vidéo</th>
+                <td>{{ video.video }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ video.description }}</td>
+            </tr>
+            <tr>
+                <th>Durée</th>
+                <td>{{ video.length }}</td>
+            </tr>
+            <tr>
+                <th>Date de publication</th>
+                <td>{{ video.datePublication ? video.datePublication|date('d/m/Y H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('video_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('video_edit', {'id': video.id}) }}">Éditer</a>
+
+    {{ include('video/_delete_form.html.twig') }}
+{% endblock %}
