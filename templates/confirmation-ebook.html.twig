@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ebook envoyé !{% endblock %}
+
+{% block body %}
+    <h1>Votre ebook a bien été envoyé à votre adresse email !</h1>
+    <p>Vous allez être redirigé vers la page d'accueil.</p>
+
+<script>
+    window.setTimeout(function(){
+        window.location.href = "http://127.0.0.1:8000/";
+        }, 5000);
+</script>
+{% endblock %}

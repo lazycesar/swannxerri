@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+
 use App\Entity\Ebook;
 
 use App\Form\EbookType;
@@ -54,7 +55,7 @@ class IndexController extends AbstractController
 
             $mailer->send($confirmation);
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('ebook_confirm');
         }
 
         return $this->render('front/home.html.twig', [
@@ -64,6 +65,7 @@ class IndexController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/formation", name="formation")
      */
@@ -108,6 +110,15 @@ class IndexController extends AbstractController
         return $this->render('front/video.html.twig', [
             'controller_name' => 'IndexController',
             'videos' => $videoRepository->findAll(),
+        ]);
+    }
+    /**
+     * @Route("/ebook_confirm", name="ebook_confirm")
+     */
+    public function ebookConfirm()
+    {
+        return $this->render('confirmation-ebook.html.twig', [
+            'controller_name' => 'IndexController',
         ]);
     }
 
