@@ -81,10 +81,15 @@
 			<h1>Recevez mon ebook gratuit</h1>
 			<p>Titre du ebook</p>
 		</div>
-		<form class="cta-ebook__form"action="">
+
+		{{ include('ebook/_form.html.twig') }}
+		{# <form class="cta-ebook__form"action="">
 		<input class="cta-ebook__input" type="email" placeholder="Entrez votre adresse email"><!--
 		--><input class="cta-ebook__submit" type="submit" value="Envoyer">
-		</form>
+		</form> #}
+
+
+
 	</section>
 
     <section class="video">

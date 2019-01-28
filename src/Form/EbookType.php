@@ -13,7 +13,11 @@ class EbookType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', TextType::class, ["label" => "Email", "attr" => ["placeholder" => "Entrez votre adresse email"]]);
+            ->add('email', TextType::class, [
+                "label" => "",  
+                "attr" => ["placeholder" => "Entrez votre adresse email", 'class' => 'cta-ebook__input']
+                
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

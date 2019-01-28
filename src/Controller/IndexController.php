@@ -1,21 +1,67 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\Ebook;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Form\EbookType;
 use App\Repository\VideoRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function index(VideoRepository $videoRepository)
+    public function index(VideoRepository $videoRepository, Request $request, \Swift_Mailer $mailer)
     {
+        $ebook = new Ebook();
+        $form = $this->createForm(EbookType::class, $ebook);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($ebook);
+            $entityManager->flush();
+
+            $body = "<body style='text-align:center'><h3 style='color:red'>Merci d'avoir téléchargé mon ebook. Il se trouve en pièce jointe</h3>
+            <p>N'hésitez pas à me faire part de vos commentaires.</p>
+            </ body>";
+
+            $message = (new \Swift_Message("Votre Ebook de Swann Xerri"))
+                ->setFrom("shinkansen13@gmail.com")
+                ->setTo($ebook->getEmail())
+                ->setBody(
+                    $body,
+                    'text/html'
+                )
+                ->attach(\Swift_Attachment::fromPath('assets/ebook/test-ebook.pdf'));
+
+            $mailer->send($message);
+
+            $newEmail = $ebook->getEmail();
+            $content = "<p>Votre ebook a été téléchargé par l'adresse email suivante :</p>
+            <p style='color:red'>$newEmail</p>";
+
+            $confirmation = (new \Swift_Message("Téléchargement de votre Ebook"))
+                ->setFrom($ebook->getEmail())
+                ->setTo("shinkansen13@gmail.com")
+                ->setBody(
+                    $content,
+                    'text/html'
+                );
+
+            $mailer->send($confirmation);
+
+            return $this->redirectToRoute('home');
+        }
+
         return $this->render('front/home.html.twig', [
             'controller_name' => 'IndexController',
             'videos' => $videoRepository->findAll(),
+            'ebook' => $ebook,
+            'form' => $form->createView(),
         ]);
     }
     /**
@@ -64,4 +110,5 @@ class IndexController extends AbstractController
             'videos' => $videoRepository->findAll(),
         ]);
     }
+
 }
