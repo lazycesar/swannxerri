@@ -16,7 +16,7 @@
             {% for video in videos %}
             {# <a href="#"> #}
                 <article>
-                <iframe {{ video.video | raw }}></iframe>
+                {{ video.video | raw }}
                             <p>Ajoutée le {{ video.datePublication ? video.datepublication|date('d/m/Y H:i') : "" }}</p>
                             <h3 class="post-title">{{ video.title }}</h3>
                             <p>{{ video.description }}</p>  

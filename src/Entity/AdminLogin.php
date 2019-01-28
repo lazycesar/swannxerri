@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Captcha\Bundle\CaptchaBundle\Validator\Constraints as CaptchaAssert;
+//use Captcha\Bundle\CaptchaBundle\Validator\Constraints as CaptchaAssert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AdminLoginRepository")
@@ -85,27 +85,27 @@ class AdminLogin implements UserInterface, \Serializable
      */
     private $date_limite_activation;
 
-    /**
-     * @CaptchaAssert\ValidSimpleCaptcha(
-     *      message = "CAPTCHA validation failed, try again."
-     * )
-     */
-    protected $captchaCode;
+    // /**
+    //  * @CaptchaAssert\ValidSimpleCaptcha(
+    //  *      message = "CAPTCHA validation failed, try again."
+    //  * )
+    //  */
+    // protected $captchaCode;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $cle_recup_mdp;
+    // /**
+    //  * @ORM\Column(type="string", length=255, nullable=true)
+    //  */
+    // private $cle_recup_mdp;
 
-    public function getCaptchaCode()
-    {
-        return $this->captchaCode;
-    }
+    // public function getCaptchaCode()
+    // {
+    //     return $this->captchaCode;
+    // }
 
-    public function setCaptchaCode($captchaCode)
-    {
-        $this->captchaCode = $captchaCode;
-    }
+    // public function setCaptchaCode($captchaCode)
+    // {
+    //     $this->captchaCode = $captchaCode;
+    // }
 
     public function getId() : ? int
     {
@@ -278,12 +278,12 @@ class AdminLogin implements UserInterface, \Serializable
         return $this;
     }
 
-    public function getCleRecupMdp(): ?string
+    public function getCleRecupMdp() : ? string
     {
         return $this->cle_recup_mdp;
     }
 
-    public function setCleRecupMdp(?string $cle_recup_mdp): self
+    public function setCleRecupMdp(? string $cle_recup_mdp) : self
     {
         $this->cle_recup_mdp = $cle_recup_mdp;
 

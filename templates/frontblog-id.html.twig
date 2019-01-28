@@ -4,18 +4,16 @@
 
 {% block body %}
 
-{% for blog in blogs %}
     <section>   
 
-        <figure><img src={{ blog.image }} alt="photo" width="300px"></figure>
+        <figure><img src={{ asset(blog.image) }} alt="photo" width="300px"></figure>
         
          <h3>{{ blog.title }}</h3>
-         <p>{{ blog.publicationDate ? blog.publicationDate|date('D-M-Y H:i:s') : "" }}</p>
-         <p>{{ blog.content }}</p>  
+         <p>{{ blog.publicationDate ? blog.publicationDate|date('d/m/Y H:i') : "" }}</p>
+         <p>{{ blog.content | raw }}</p>  
 
-         {# <a href="{{ path('blog_show', {'id': blog.id}) }}">Lire l'article</a> #}
+         <a href="{{ path('blog') }}">Retour</a>
              
     </section>
-{% endfor %}
 
 {% endblock %}

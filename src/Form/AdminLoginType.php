@@ -29,10 +29,10 @@ class AdminLoginType extends AbstractType
                 "required" => true,
                 "first_options" => ["label" => "Mot de passe", "attr" => ["placeholder" => "Entrez votre mot de passe"]],
                 'second_options' => ['label' => 'Confirmation du mot de passe', "attr" => ["placeholder" => "Confirmez votre mot de passe"]],
-            ])
-            ->add('captchaCode', SimpleCaptchaType::class, array(
-                'captchaStyleName' => 'ExampleCaptcha'
-            ));
+            ]);
+            // ->add('captchaCode', SimpleCaptchaType::class, array(
+            //     'captchaStyleName' => 'ExampleCaptcha'
+            // ))
     }
 
     public function configureOptions(OptionsResolver $resolver)

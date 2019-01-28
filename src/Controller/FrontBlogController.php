@@ -21,12 +21,12 @@ class FrontBlogController extends AbstractController
     }
 
     /**
-     * @Route("/blog/{id}", name="blog_show", methods={"GET"})
+     * @Route("/blog/{id}", name="blog_show_id", methods={"GET"})
      */
     public function show(Blog $blog) : Response
     {
         return $this->render('frontblog-id.html.twig', [
-            'blogs' => $blog,
+            'blog' => $blog,
         ]);
     }
 }

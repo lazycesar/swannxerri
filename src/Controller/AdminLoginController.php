@@ -53,6 +53,7 @@ class AdminLoginController extends AbstractController
             $urlActivation = $this->generateUrl("activation", [], UrlGeneratorInterface::ABSOLUTE_URL);
 
             $prenom = $adminLogin->getPrenom();
+            $nom = $adminLogin->getNom();
             $body = "<body style='text-align:center'><h3 style='color:red'>Bonjour, $prenom ! Votre demande d'inscription a bien été enregistrée.</h3>
             <p>Veuillez la confirmer en cliquant sur ce lien</p>
             <p><a href='$urlActivation?email=$email&cleActivation=$cleActivation'>ACTIVER MON COMPTE</a></p>
@@ -63,9 +64,20 @@ class AdminLoginController extends AbstractController
             $message = (new \Swift_Message("Votre adhésion au site de Swann Xerri"))
                 ->setFrom("contact@swannxerri.com")
                 ->setTo($adminLogin->getEmail())
-                ->setBody($body, "text/html");  // "text/plain" ne permet pas l'utilisation du HTML !
+                ->setBody($body, "text/html");
 
             $mailer->send($message);
+
+            $adminBody = "<body style='text-align:center'><h3>Bonjour, Swann ! $prenom $nom a acheté votre formation.</h3>
+            <p>Veuillez vérifier la bonne exécution de la transaction dans votre compte PayPal, ainsi que la présence de ce nouveau membre dans votre interface administrateur.</p>
+            </body>";
+
+            $adminMessage = (new \Swift_Message("Vous avez un nouveau membre"))
+                ->setFrom($adminLogin->getEmail())
+                ->setTo("shinkansen13@gmail.com")
+                ->setBody($adminBody, "text/html");
+
+            $mailer->send($adminMessage);
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($adminLogin);
@@ -103,7 +115,7 @@ class AdminLoginController extends AbstractController
 
                         $userCherche->setLevel(1);
                         $userCherche->setCleActivation(md5(uniqid()));
-                        $userCherche->setDateLimiteActivation(new \DateTime("+1 day"));
+                        $userCherche->setDateLimiteActivation(new \DateTime("+ 1 day"));
 
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->flush();
@@ -120,13 +132,13 @@ class AdminLoginController extends AbstractController
         }
 
         dump($_REQUEST);
-        dump("$email,$cleActivation");
+        dump(" $email, $cleActivation ");
 
         return $this->render('admin_login/activation.html.twig', [
            // 'articleFooter' => $articleFooter,
             'email' => $email,
             'cleActivation' => $cleActivation,
-            'messageConfirmation' => $messageConfirmation ?? "",
+            'messageConfirmation' => $messageConfirmation ?? " ",
         ]);
     }
 
@@ -181,7 +193,7 @@ class AdminLoginController extends AbstractController
     }
 
     /**
-     * @Route("/index/{id}", name="admin_login_delete", methods={"DELETE"})
+     * @Route("/index/{id}", name=" admin_login_delete ", methods={" DELETE "})
      */
     public function delete(Request $request, AdminLogin $adminLogin) : Response
     {

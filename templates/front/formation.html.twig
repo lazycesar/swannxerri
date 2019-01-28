@@ -1,13 +1,13 @@
 {% extends 'front-base.html.twig' %}
 
-{% block title %}Liste des articles{% endblock %}
+{% block title %}E-Formation{% endblock %}
 {% block body %}
     <main id="formation-page">   
         <section class="cover cover-single cover-formation">
             <div class="cover-single__text">
-                <span class="breadcrumb"> Home - eFormation </span>
+                <span class="breadcrumb"> Home - E-Formation </span>
 				<h1 class="page-single-h1">E-Formation</h1>
-                <p>Obtenez la motivation, les conseils et le soutien dont vous avez besoin pour mettre votre vie sur les rails. Si vous voulez attirer la richesse, le succès et le bonheur, alors nos cours de coaching en ligne sont pour vous.</p>
+                <p>Obtenez la motivation, les conseils et le soutien dont vous avez besoin pour mettre votre vie sur les rails. Si vous voulez attirer la richesse, le succès et le bonheur, alors nos cours de coaching en ligne sont faits pour vous.</p>
             </div>
         </section>        
             <div class="container-center cflex">
@@ -16,12 +16,12 @@
                             <h2 class="">« Architecte de ta Vie »</h2>
                         </div>
                         <div class="text-section">
-                            <p>Est un programme de coaching en ligne sur 12 mois autour des 4 piliers du succès.
+                            <p>C'est un programme de coaching en ligne sur 12 mois autour des 4 piliers du succès.
                                 <ul>
-                                    <li>La conscience de soi</li>
-                                    <li>La maîtrise de soi</li>
-                                    <li>Les clés de la performance individuelle</li>
-                                    <li>Les clés de la performance collective</li>
+                                    <li>- La conscience de soi</li>
+                                    <li>- La maîtrise de soi</li>
+                                    <li>- Les clés de la performance individuelle</li>
+                                    <li>- Les clés de la performance collective</li>
                                 </ul>                
                             Il s’agit de l’un des programmes les plus complets en développement personnel qui vous permettra d’avoir tous les outils pratiques de la performance, du bien-être et de l’épanouissement.
                             </p>	
@@ -146,8 +146,8 @@
                     return actions.payment.create({
                         transactions: [{
                         amount: {
-                            total: '0.01',
-                            currency: 'USD'
+                            total: '99',
+                            currency: 'EUR'
                         }
                         }]
                     });
@@ -163,13 +163,15 @@
                     });
                     }
                 }, '#paypal-button');
-
+                
                 </script>
+                {# <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppppcmcvdam.png" alt="Pay with PayPal, PayPal Credit or any major credit card" /> #}
+
             </div>{# end container center #}    
             <section class="banner banner-about">
                     <div class="banner__text">
-                        <h1>Imagine </h1>
-                        <h2>Les seules limites sont celles que tu te fixes</h2>
+                        <h1>Imagine</h1>
+                        <h2>Les seules limites sont celles que tu te fixes.</h2>
                     </div>
             </section>
     </main>
