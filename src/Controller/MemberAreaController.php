@@ -15,7 +15,7 @@ class MemberAreaController extends AbstractController
      */
     public function index(BlogRepository $blogRepository) : Response
     {
-        return $this->render('membres.html.twig', [
+        return $this->render('front/membres.html.twig', [
             'membres' => $blogRepository->findAll(),
         ]);
     }

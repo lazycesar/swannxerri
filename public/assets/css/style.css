@@ -53,6 +53,9 @@ body {
 /*-----------------------------
 general
 -----------------------------*/
+.nav-logout {
+  font-weight: 700;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -115,6 +118,7 @@ button {
 }
 img {
   min-width: 100%;
+  max-width: 100%;
   height: auto;
 }
 p {
@@ -138,10 +142,11 @@ a {
 .flexitem-auto {
   flex: 1 1 auto;
 }
-.title-section {
+/* .title-section {
   margin-bottom: 1rem;
-}
-.flex-center {
+} */
+.flex-center,
+.flex-start {
   width: 1024px;
   display: flex;
   flex-wrap: wrap;
@@ -150,6 +155,9 @@ a {
   align-content: center;
   align-items: center;
   max-width: 90%;
+}
+.flex-start {
+  align-items: flex-start;
 }
 
 .container-center {
@@ -163,6 +171,9 @@ a {
   justify-content: space-around;
   align-content: center;
   align-items: center;
+}
+.mtb {
+  margin: 5rem 0px;
 }
 
 /*-----------------------------
@@ -419,19 +430,40 @@ Coaching
   flex-direction: column;
   flex: 1 1;
 }
+.card-coaching figure {
+  position: relative;
+}
+.card-coaching figure::before {
+  background: none;
+}
+.card-coaching figure:hover::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--darkblue);
+  transition: all 0.3s linear;
+  opacity: 0.6;
+}
 .coaching__copy {
   position: relative;
-  width: calc(100% - 20%);
-  top: 84px;
+  width: calc(100% - 10%);
+  top: -55px;
   background-color: var(--white);
-  transform: translate(-50%, -50%);
-  left: 50%;
+  /* transform: translate(-50%, -50%); */
+  left: 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0 1rem 1rem;
   box-shadow: var(--shadow);
+}
+.coaching__copy a {
+  margin-top: auto;
 }
 .coaching__copy h3 {
   border-bottom: 3px solid var(--darkblue);
@@ -447,6 +479,7 @@ Coaching
 }
 .coaching__image {
   object-fit: cover;
+  height: 300px;
 }
 /*-----------------------------
 Cta-ebook
@@ -496,12 +529,10 @@ Formation
   background-color: var(--softblue);
   color: var(--white);
   padding: 3rem 0;
-  width: 100%;
 }
 .formation__left__image {
   object-fit: cover;
-  object-position: top;
-  width: 400px;
+  object-position: bottom;
   height: 500px;
   box-shadow: var(--shadow);
 }
@@ -510,10 +541,9 @@ Formation
   justify-content: center;
   align-items: center;
 }
-.formation__copy {
-  width: 80%;
+.formation__left__figure {
+  width: 100%;
 }
-
 .feedback {
   margin: 5rem auto 8rem;
   display: flex;
@@ -537,16 +567,26 @@ Feedback
 }
 .card-feedback__copy:hover {
   box-shadow: var(--shadow);
+  border-radius: 4px;
+}
+.card-feedback__image {
+  transition: all 1s linear;
+  transform: rotate(10deg);
+}
+.card-feedback__image:hover {
+  transform: rotate(0deg);
 }
 .card-feedback__image figure {
   width: 80px;
   height: 80px;
-  background-color: var(--darkblue);
+  border-radius: 50%;
+}
+.card-feedback__image img {
   border-radius: 50%;
 }
 .card-feedback__name {
   margin-left: 1rem;
-  align-self: self-end;
+  align-self: center;
 }
 .card-feedback__name h2 {
   color: var(--darkblue);
@@ -840,7 +880,7 @@ Single: Contact-Page
 -----------------------------*/
 .cover-contact {
   background-image: url("/assets/img/contact.jpg");
-  background-position: 50% 100%;
+  background-position: 50% 52%;
 }
 .contact-icons {
   display: flex;
@@ -859,6 +899,10 @@ Single: Contact-Page
 #contact-page .form-group {
   display: flex;
   flex-direction: column;
+  /* align-items: center; */
+}
+#contact-page .content-right__text {
+  width: 100%;
 }
 .form-group label {
   margin: 0.5rem 0;
@@ -869,8 +913,15 @@ Single: Contact-Page
   border: 1px solid var(--darkblue);
   padding: 0.5rem;
 }
+/* .form-group > label {
+    flex: 1 0 120px;
+    max-width: 220px;
+}
+.form-group > label + * {
+    flex: 1 0 220px;
+} */
 /*-----------------------------
-About-Page
+Single: About-Page
 -----------------------------*/
 .cover-about {
   background-image: url("/assets/img/about.jpg");
@@ -889,6 +940,19 @@ About-Page
   border-bottom: 4px solid var(--darkblue);
 }
 
+/*-----------------------------
+Single: Membres-Page
+-----------------------------*/
+#membres-page article {
+  flex: 1 1 auto;
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#membres-page iframe {
+  height: 200px;
+}
 /*-----------------------------
 Tablet
 -----------------------------*/
@@ -993,7 +1057,10 @@ Smartphone
   .coaching__copy {
     width: 90%;
     position: relative;
-    top: 58px;
+  }
+  .card-coaching {
+    flex: 1 1 auto;
+    margin: 0;
   }
   /* Cta-Ebook */
   .cta-ebook {
@@ -1018,13 +1085,13 @@ Smartphone
   .formation__left__figure::before {
     content: " ";
     background-color: var(--softblue);
-    width: 110%;
+    width: 10%;
     height: 50%;
     position: absolute;
     top: 25%;
     display: block;
     z-index: -1;
-    left: -16px;
+    right: 0;
   }
   /* Feedback */
   .card-feedback {
