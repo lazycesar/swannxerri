@@ -3,7 +3,7 @@
 {% block title %}Espace Membres{% endblock %}
 {% block body %}    
     <main id="membres-page">
-
+         
     <section class="cover cover-single cover-formation">
             <div class="cover-single__text">
                 <p>{{ "Vous êtes connecté(e)\nBonjour, " | nl2br }} {{ app.user.username }} {{ "\n" | nl2br }}</p>
@@ -13,38 +13,19 @@
         </section>  
         <section class="mtb">   
             <div class="container-center cflex">
-                <article>
-                    <iframe src="https://www.youtube.com/embed/RP44XV2Ov40" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Le test des 3 filtres de Socrate</h3>
-                    <p>02:24</p>
+            {% for video in videos %}
+                <article class="card">
+                    {{ video.video | raw }}
+                    <p>Ajoutée le {{ video.datePublication ? video.datepublication|date('d/m/Y H:i') : "" }}</p>
+                    <h3 class="post-title">{{ video.title }}</h3>    
+                    <p>{{ video.description }}</p>                
+                    <p>Durée : {{ video.length }}</p>
                 </article>
-                <article>
-                    <iframe src="https://www.youtube.com/embed/JvgUtaJgmno" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Se parler à soi-même</h3>
-                    <p>04:26</p>
-                </article>
-                <article>
-                    <iframe src="https://www.youtube.com/embed/aUiwQd72IgE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Faire la différence</h3>
-                    <p>03:57</p>
-                </article>
-                <article>
-                    <iframe src="https://www.youtube.com/embed/i1D54gZOlrQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Être présent</h3>
-                    <p>03:39</p>
-                </article>
-                <article>
-                    <iframe src="https://www.youtube.com/embed/AitK37RgzA4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Comment échouer avec succès ?</h3>
-                    <p>04:35</p>
-                </article>
-                <article>
-                    <iframe src="https://www.youtube.com/embed/CDyUsXxTu0A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <h3>Prendre soin de ton corps</h3>
-                    <p>04:19</p>
-                </article>
+            {% endfor %}
+
             </div>{# end container center  #}
         </section>
+
     </main>
 
 {% endblock %}
