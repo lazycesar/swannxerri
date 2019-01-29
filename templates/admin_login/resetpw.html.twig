@@ -6,14 +6,30 @@
     <h1>Formulaire de création d'un nouveau mot de passe.</h1>
     
     <form method="POST">
-    
-        <label for="password">Nouveau mot de passe</label>
-        <input type="password" name="password">
+
+        <label for="email">Votre email</label>
+        <input type="email" name="email" value="{{ email }}"><br>
+        <label for="cleActivation">Votre clé d'activation</label>
+        <input type="text" name="cleActivation" value="{{ cleActivation }}"><br>
+        <label for="password">Entrez votre nouveau mot de passe</label>
+        <input id="password" type="password" name="password" placeholder="8 caractères minimum"><br>
+        <label for="password">Confirmez votre nouveau mot de passe</label>
+        <input id="password-confirm" type="password" name="password-confirm" placeholder="8 caractères minimum"><br>
         <input type="hidden" name="token" value="{token}">
 
         <button type="submit">Envoyer</button>
+        <div>{{ messageConfirmation }}</div>
         
-        {# <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> #}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
         
     </form>
+
+    <script>
+        function redirect() {
+            window.setTimeout(function(){
+        window.location.href = "http://127.0.0.1:8000/membres/"
+    }, 3000)
+        }
+        document.querySelector("form").addEventListener("submit", redirect());
+    </script>
 {% endblock %}

@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 
 
 /**
@@ -107,9 +108,7 @@ class AdminLoginController extends AbstractController
 
                 if ($cleActivation == $userCherche->getCleActivation()) {
                     $dateFin = $userCherche->getDateLimiteActivation();
-                    // http://php.net/manual/fr/datetime.gettimestamp.php
                     $timestampFin = $dateFin->getTimeStamp();
-                    // http://php.net/manual/fr/function.time.php
                     $timestampActuel = time();
                     if ($timestampFin > $timestampActuel) {
 
@@ -138,17 +137,110 @@ class AdminLoginController extends AbstractController
            // 'articleFooter' => $articleFooter,
             'email' => $email,
             'cleActivation' => $cleActivation,
-            'messageConfirmation' => $messageConfirmation ?? " ",
+            'messageConfirmation' => $messageConfirmation ?? "",
         ]);
     }
 
     /**
      * @Route("/lostpw", name="lostpw", methods={"GET","POST"})
      */
-    public function lostpw() : Response
+    public function lostpw(Request $request, AdminLoginRepository $adminLoginRepository, ObjectManager $manager, \Swift_Mailer $mailer) : Response
     {
+        $email = $request->get("email");
+        $adminLogin = null;
+        if ($email != "") {
+            $adminLogin = $adminLoginRepository->findOneBy(["email" => $email]);
+        }
+        if ($adminLogin != null) {
 
-        return $this->render('admin_login/lostpw.html.twig', []);
+            $cleActivation = md5(uniqid());
+            $adminLogin->setCleActivation($cleActivation);
+            $adminLogin->setDateLimiteActivation(new \DateTime("+1 day"));
+
+            $email = $adminLogin->getEmail();
+            $urlActivation = $this->generateUrl("resetpw", [], UrlGeneratorInterface::ABSOLUTE_URL);
+
+            $prenom = $adminLogin->getUsername();
+            $body = "<body style='text-align:center'><h3>Bonjour, $prenom ! Votre demande de réinitialisation du mot de passe a été prise en compte.</h3>
+            <p>Cliquez sur le lien ci-dessous pour accéder au formulaire.</p>
+            <p><a href='$urlActivation?email=$email&cleActivation=$cleActivation'>RÉINITIALISER MON MOT DE PASSE</a></p>
+            <p>Si vous n'avez pas demandé une réinitialisation du mot de passe, contactez l'administrateur du site.</p>
+            <p>Contact : <a href='shinkansen13@gmail.com'>shinkansen13@gmail.com</a></p>
+            </body>";
+
+            $adminMessage = (new \Swift_Message("Swann Xerri - Réinitialisation de votre mot de passe"))
+                ->setFrom("shinkansen13@gmail.com")
+                ->setTo($adminLogin->getEmail())
+                ->setBody($body, "text/html");
+
+            $mailer->send($adminMessage);
+
+            $manager->persist($adminLogin);
+            $manager->flush();
+
+            $messageConfirmation = "Veuillez vérifier votre boîte mail.";
+        }
+
+        return $this->render('admin_login/lostpw.html.twig', [
+            'messageConfirmation' => $messageConfirmation ?? "",
+        ]);
+    }
+
+    /**
+     * @Route("/resetpw", name="resetpw", methods={"GET","POST"})
+     */
+    public function resetpw(Request $request, AdminLoginRepository $adminLoginRepository, ObjectManager $manager, \Swift_Mailer $mailer) : Response
+    {
+        $email = $request->get("email");
+        $cleActivation = $request->get("cleActivation");
+        $password = $request->get("password");
+        $passwordConfirm = $request->get("password-confirm");
+
+        $adminLogin = null;
+
+        if ($email != "") {
+            $adminLogin = $adminLoginRepository->findOneBy(["email" => $email]);
+        }
+
+        if ($adminLogin != null) {
+            if ($email == $adminLogin->getEmail()) {
+                if ($cleActivation == $adminLogin->getCleActivation()) {
+                    if ($password != "" && $passwordConfirm != "") {
+                        if ($password == $passwordConfirm) {
+
+                            $passwordHashe = password_hash($password, PASSWORD_BCRYPT);
+                            $adminLogin->setPassword($passwordHashe);
+
+                            $prenom = $adminLogin->getUsername();
+                            $body = "<body style='text-align:center'><h3>Bonjour, $prenom ! Votre mot de passe a été réinitialisé avec succès.</h3>
+            <p>Si vous n'êtes pas à l'origine de cette demande, contactez l'administrateur du site.</p>
+            <p>Contact : <a href='shinkansen13@gmail.com'>shinkansen13@gmail.com</a></p>
+            </body>";
+
+                            $adminMessage = (new \Swift_Message("Swann Xerri - Votre mot de passe a été réinitialisé"))
+                                ->setFrom("shinkansen13@gmail.com")
+                                ->setTo($adminLogin->getEmail())
+                                ->setBody($body, "text/html");
+
+                            $mailer->send($adminMessage);
+
+                            $adminLogin->setPassword($passwordHashe);
+                            $manager->persist($adminLogin);
+                            $manager->flush();
+
+                            $messageConfirmation = "Votre mot de passe a été réinitialisé avec succès.";
+                        }
+                    }
+                }
+            }
+        }
+
+        return $this->render('admin_login/resetpw.html.twig', [
+            'email' => $email,
+            'cleActivation' => $cleActivation,
+            'messageConfirmation' => $messageConfirmation ?? "",
+        ]);
+
     }
 
     /**
