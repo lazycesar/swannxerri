@@ -85,7 +85,7 @@ class IndexController extends AbstractController
         ]);
     }
     /**
-     * @Route("/professionel", name="professionnel")
+     * @Route("/professionnel", name="professionnel")
      */
     public function professionnel()
     {
