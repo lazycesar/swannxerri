@@ -2,9 +2,6 @@
 
 {% block title %}Liste des articles{% endblock %}
 
-{% block stylesheets %}
-<link rel="stylesheet" href="{{ absolute_url(asset('assets/css-admin/blog-index.css')) }}">
-{% endblock %}
 
 {% block body %}
     <h1>Liste des articles du blog</h1>
@@ -26,7 +23,7 @@
             <tr>
                 <td>{{ blog.id }}</td>
                 <td>{{ blog.title }}</td>
-                <td>{{ blog.image }}</td>
+                <td><img src="/{{ blog.image }}" class="img-fluid"></td>
                 <td>{{ blog.content | striptags | slice (0, 50) }}...</td>
                 <td>{{ blog.publicationDate ? blog.publicationDate|date('d/m/Y H:i:s') : '' }}</td>
                 <td>
