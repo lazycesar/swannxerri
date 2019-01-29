@@ -249,8 +249,8 @@ Cover
   clear: both;
 }
 .cover-left {
-  background-image: url("/assets/img/photo_1.jpg");
-  background-position: left;
+  background-image: url("/assets/img/cover1.jpg");
+  background-position: 54% 12%;
   height: 100%;
   width: 50%;
   position: relative;
