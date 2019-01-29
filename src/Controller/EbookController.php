@@ -50,7 +50,7 @@ class EbookController extends AbstractController
                     $body,
                     'text/html'
                 )
-                ->attach(\Swift_Attachment::fromPath('assets/ebook/charisme.pdf'));
+                ->attach(\Swift_Attachment::fromPath('assets/ebook/test-ebook.pdf'));
 
             $mailer->send($message);
 
