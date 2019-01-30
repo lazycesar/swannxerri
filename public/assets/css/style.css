@@ -1146,6 +1146,10 @@ Smartphone
     flex-direction: column;
   }
   /* Cover */
+  .cover-about {
+    background-position: right;
+    background-size: cover;
+  }
   .break2 {
     display: none;
   }
