@@ -19,17 +19,20 @@
 
         <button type="submit">Envoyer</button>
         <div>{{ messageConfirmation }}</div>
-        
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        
-    </form>
 
-    {# <script>
+        {% if messageConfirmation %}
+    <script>
         function redirect() {
             window.setTimeout(function(){
         window.location.href = "http://127.0.0.1:8000/membres/"
     }, 3000)
         }
         document.querySelector("form").addEventListener("submit", redirect());
-    </script> #}
+    </script>
+    {% endif %}
+    
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        
+    </form>
+
 {% endblock %}
