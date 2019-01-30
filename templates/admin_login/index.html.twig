@@ -14,7 +14,6 @@
             <tr>
                 <th>Id</th>
                 <th>Utilisateur</th>
-                <th>Mot de passe</th>
                 <th>Niveau</th>
                 <th>Date de création</th>
                 <th>Actions</th>
@@ -25,7 +24,6 @@
             <tr>
                 <td>{{ admin_login.id }}</td>
                 <td>{{ admin_login.username }}</td>
-                <td>{{ admin_login.password }}</td>
                 <td>{{ admin_login.level }}</td>
                 <td>{{ admin_login.creationDate ? admin_login.creationDate|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
