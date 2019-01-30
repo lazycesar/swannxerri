@@ -56,6 +56,13 @@ body {
   color: var(--darkgrey);
 }
 
+html.sr .load-hidden {
+  visibility: hidden;
+}
+
+html.sr .card-feedback {
+  visibility: hidden;
+}
 /*-----------------------------
 general
 -----------------------------*/
@@ -521,6 +528,10 @@ Cta-ebook
 .cta-ebook__form {
   display: flex;
   align-items: center;
+}
+
+.cta-ebook__copy p {
+  font-size: 1.5rem;
 }
 /*-----------------------------
 Formation
@@ -1063,12 +1074,19 @@ Single: Membres-Page
   width: 100%;
 }
 .cover-membres {
-    background-image: linear-gradient(to right top, #2ec0f9, #4cc7f9, #63cefa, #76d4fa, #88dbfb);
-    background-color: transparent;
+  background-image: linear-gradient(
+    to right top,
+    #2ec0f9,
+    #4cc7f9,
+    #63cefa,
+    #76d4fa,
+    #88dbfb
+  );
+  background-color: transparent;
 }
-/*-----------------------------
+/* -----------------------------
 Tablet
------------------------------*/
+----------------------------- */
 @media (max-width: 998px) {
   /* .header__icon-bar {
     display: block;
@@ -1085,10 +1103,9 @@ Tablet
     overflow: auto;
   } */
 }
-
-/*-----------------------------
+/* -----------------------------
 Smartphone
------------------------------*/
+----------------------------- */
 @media (max-width: 767px) {
   /* General */
   .content-row {
@@ -1100,7 +1117,6 @@ Smartphone
   img {
     min-width: inherit;
   }
-
   .header {
     z-index: 100;
     width: 100%;
@@ -1109,7 +1125,6 @@ Smartphone
   .header__icon-bar {
     display: block;
   }
-
   .header__menu {
     width: 100%;
     height: 0px;
@@ -1118,12 +1133,10 @@ Smartphone
   .header__menu__item {
     display: block;
   }
-
   .is-open {
     height: 300px;
     overflow: hidden;
   }
-
   .cover,
   .about {
     flex-direction: column;
@@ -1137,7 +1150,6 @@ Smartphone
     width: 90%;
     text-align: center;
   }
-
   .cover-left {
     background-size: cover;
     background-repeat: no-repeat;
@@ -1156,7 +1168,6 @@ Smartphone
     width: 300px;
     height: 350px;
   }
-
   /* Cards */
   .card {
     width: 90%;
@@ -1223,7 +1234,6 @@ Smartphone
     justify-content: center;
     padding: 1rem;
   }
-
   /* Footer */
   .footer div {
     width: 50%;
@@ -1245,16 +1255,4 @@ Smartphone
   .footer-section figure {
     width: auto;
   }
-}
-
-@media screen and (max-width: 20em) {
-}
-@media screen and (min-width: 20em) {
-}
-@media screen and (min-width: 40em) {
-}
-@media screen and (min-width: 60em) {
-}
-
-@media screen and (min-width: 80em) {
 }
