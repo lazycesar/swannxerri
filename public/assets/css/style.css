@@ -64,6 +64,10 @@ ul li {
   list-style: none;
   margin: 0.5rem 0;
 }
+b,
+strong {
+  font-weight: bold;
+}
 
 .animate {
   -webkit-transition: all 0.3s ease-out;
@@ -359,8 +363,10 @@ Blog
   background: var(--white);
 }
 .card__image {
+  margin: 0;
+  height: 250px;
+  object-fit: cover;
   width: 100%;
-  height: auto;
 }
 .tle {
   /* font-size: 2rem; */
@@ -897,17 +903,19 @@ Single: Blog-Page
 #blog-page img {
   margin: 0;
   height: 300px;
-  outline-color: var(--cream);
+  filter: none;
   transition: all 3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  filter: grayscale(5);
   object-fit: cover;
   width: 100%;
 }
 #blog-page img:hover {
-  filter: none;
+  filter: grayscale(5);
 }
 #blog-page figcaption {
   text-align: center;
+}
+#blog-article-page a {
+  color: var(--darkblue);
 }
 /*-----------------------------
 Single: Formation-Page
@@ -932,12 +940,31 @@ Single: Formation-Page
   width: 100%;
   box-shadow: var(--shadow);
 }
+
+#paypal-button {
+  margin: 0 auto;
+}
+#paypal-button strong {
+  margin: 1rem 0;
+  display: block;
+}
 /*-----------------------------
 Single: Professionnel-Page
 -----------------------------*/
 .cover-professionnel {
   background-image: url("/assets/img/professionnel0.jpg");
   background-position: 50% 52%;
+}
+/*-----------------------------
+Single: Inscription-Page
+-----------------------------*/
+#inscription-page .cflex {
+  flex-direction: column;
+}
+
+#inscription-page .form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 /*-----------------------------
