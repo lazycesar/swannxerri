@@ -4,8 +4,15 @@
 
 
 {% block body %}
-    <h1>Liste des articles du blog</h1>
+    <h1>Liste des articles</h1>
     <p>{{ app.user.username }}</p>
+
+    <div class="nav-links">
+        <a class="nav-add" href="{{ path('blog_new') }}">Ajouter un nouvel article</a>
+        <a class="nav-users" href="{{ url("admin_login_index") }}">Liste des utilisateurs</a>
+        <a class="nav-users" href="{{ url("video_index") }}">Liste des vidéos</a>
+        <a class="nav-logout" href="{{ url("logout") }}">Se déconnecter</a>
+    </div>
 
     <table class="table">
         <thead>
@@ -24,7 +31,7 @@
                 <td>{{ blog.id }}</td>
                 <td>{{ blog.title }}</td>
                 <td><img src="/{{ blog.image }}" class="img-fluid"></td>
-                <td>{{ blog.content | striptags | slice (0, 50) }}...</td>
+                <td>{{ blog.content | raw | slice (0, 50) }}...</td>
                 <td>{{ blog.publicationDate ? blog.publicationDate|date('d/m/Y H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('blog_show', {'id': blog.id}) }}">Afficher</a>
@@ -38,12 +45,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <div class="nav-links">
-        <a class="nav-add" href="{{ path('blog_new') }}">Ajouter un nouvel article</a>
-        <a class="nav-users" href="{{ url("admin_login_index") }}">Liste des utilisateurs</a>
-        <a class="nav-users" href="{{ url("video_index") }}">Liste des vidéos</a>
-        <a class="nav-logout" href="{{ url("logout") }}">Se déconnecter</a>
-    </div>
 
 {% endblock %}
