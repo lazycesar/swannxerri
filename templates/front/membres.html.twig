@@ -6,9 +6,8 @@
          
     <section class="cover cover-single cover-formation">
             <div class="cover-single__text">
-                <p>{{ "Vous êtes connecté(e)\nBonjour, " | nl2br }} {{ app.user.username }} {{ "\n" | nl2br }}</p>
+                <p>{{ "Vous êtes connecté(e)\nBonjour, " | nl2br }} {{ app.user.username }} {{ "\n" | nl2br }}<a class="nav-logout" href="{{ url("logout") }}">Se déconnecter</a></p>
 				<h1 class="page-single-h1">Bienvenue dans votre espace membre</h1>
-                <p><a class="nav-logout" href="{{ url("logout") }}">Se déconnecter</a></p>
             </div>
         </section>  
         <section class="mtb">   

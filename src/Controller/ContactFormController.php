@@ -42,6 +42,7 @@ class ContactFormController extends AbstractController
 
             $prenom = $contactForm->getPrenom();
             $contenu = $contactForm->getContenu();
+            $objet = $contactForm->getObjet();
             $body = "<body style='text-align:center'><h3 style='color:red'>Bonjour, $prenom ! Votre message a bien été enregistré.</h3>
             <p>Je vous répondrai dans les plus brefs délais.</p>
             <div>Pour rappel, votre message était: <em>'$contenu'</em></div>
@@ -57,7 +58,7 @@ class ContactFormController extends AbstractController
 
             $mailer->send($message);
 
-            $copyMessage = (new \Swift_Message("Demande de contact"))
+            $copyMessage = (new \Swift_Message("Demande de contact - $objet"))
                 ->setFrom("contact@swannxerri.com")
                 ->setTo("shinkansen13@gmail.com")
                 ->setBody(
@@ -67,7 +68,7 @@ class ContactFormController extends AbstractController
 
             $mailer->send($copyMessage);
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('contact_confirm');
         }
 
         return $this->render('contact_form/new.html.twig', [
@@ -120,5 +121,15 @@ class ContactFormController extends AbstractController
         }
 
         return $this->redirectToRoute('contact_form_index');
+    }
+
+    /**
+     * @Route("/contact_confirm", name="contact_confirm", methods={"GET"})
+     */
+    public function contactConfirmation(ContactFormRepository $contactFormRepository) : Response
+    {
+        return $this->render('confirmation-contact.html.twig', [
+            'contact_forms' => $contactFormRepository->findAll(),
+        ]);
     }
 }
