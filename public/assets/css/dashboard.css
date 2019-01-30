@@ -109,7 +109,7 @@ html {
 }
 
 .sidebar .nav-link.active {
-  color: #007bff;
+  color: var(--darkblue);
 }
 
 .sidebar .nav-link:hover .feather,

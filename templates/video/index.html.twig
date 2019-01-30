@@ -3,17 +3,14 @@
 {% block title %}Liste des vidéos{% endblock %}
 
 {% block body %}
-    <h1>Liste des vidéos</h1>
-
-    <div class="nav-links">
-        <a class="nav-add" href="{{ path('video_new') }}">Ajouter une nouvelle video</a>
-        <a class="nav-users" href="{{ url("admin_login_index") }}">Liste des utilisateurs   </a>
-        <a class="nav-users" href="{{ url("blog_index") }}">Liste des articles</a>
-        <a class="nav-logout" href="{{ url("logout") }}">Se déconnecter</a>
-    </div>
-
-    <table class="table">
-        <thead>
+<div class="container-fluid">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2">Liste des vidéos</h1>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
@@ -29,13 +26,13 @@
             <tr>
                 <td>{{ video.id }}</td>
                 <td>{{ video.title }}</td>
-                <td>{{ video.video }}</td>
+                <td>{{ video.video | raw }}</td>
                 <td>{{ video.description }}</td>
                 <td>{{ video.length }}</td>
                 <td>{{ video.datePublication ? video.datePublication|date('d/m/Y H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('video_show', {'id': video.id}) }}">Afficher</a>
-                    <a href="{{ path('video_edit', {'id': video.id}) }}">Éditer</a>
+                    <a class="btn btn-primary my-1" href="{{ path('video_show', {'id': video.id}) }}">Afficher</a>
+                    <a class="btn btn-primary my-1" href="{{ path('video_edit', {'id': video.id}) }}">Éditer</a>
                 </td>
             </tr>
         {% else %}
@@ -46,4 +43,7 @@
         </tbody>
     </table>
 
+        </main>
+  </div>
+</div> {# end container-fluid #}
 {% endblock %}
