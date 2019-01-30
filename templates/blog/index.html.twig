@@ -27,7 +27,7 @@
                 <td>{{ blog.id }}</td>
                 <td>{{ blog.title }}</td>
                 <td><img src="/{{ blog.image }}" class="img-fluid table-img"></td>
-                <td>{{ blog.content | raw | slice (0, 50) }}...</td>
+                <td>{{ blog.content | raw | slice (0, 50) | raw }}...</td>
                 <td>{{ blog.publicationDate ? blog.publicationDate|date('d/m/Y H:i:s') : '' }}</td>
                 <td>
                     <a class="btn btn-primary my-1" href="{{ path('blog_show', {'id': blog.id}) }}">Afficher</a>
