@@ -4,3 +4,5 @@ $(document).ready(function() {
     e.preventDefault();
   });
 });
+
+ScrollReveal().reveal(".formation__left__image");

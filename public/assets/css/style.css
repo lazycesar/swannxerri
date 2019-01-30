@@ -42,6 +42,12 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+.d-block {
+  color: red;
+}
+.form-error-icon.badge.badge-danger.text-uppercase {
+  display: none;
+}
 
 html,
 body {
@@ -1055,6 +1061,10 @@ Single: Membres-Page
 #membres-page iframe {
   height: 200px;
   width: 100%;
+}
+.cover-membres {
+    background-image: linear-gradient(to right top, #2ec0f9, #4cc7f9, #63cefa, #76d4fa, #88dbfb);
+    background-color: transparent;
 }
 /*-----------------------------
 Tablet
