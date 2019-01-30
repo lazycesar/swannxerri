@@ -11,6 +11,17 @@
         <input type="email" name="email">
         <button type="submit">Envoyer</button>
         <div>{{ messageConfirmation ?? "" }}</div>
+
+        {% if messageConfirmation %}
+    <script>
+        function redirect() {
+            window.setTimeout(function(){
+        window.location.href = "http://127.0.0.1:8000/"
+    }, 3000)
+        }
+        document.querySelector("form").addEventListener("submit", redirect());
+    </script>
+    {% endif %}
         
         {# <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> #}
         
