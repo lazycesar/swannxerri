@@ -4,18 +4,14 @@
 
 
 {% block body %}
-    <h1>Liste des articles</h1>
-    <p>{{ app.user.username }}</p>
-
-    <div class="nav-links">
-        <a class="nav-add" href="{{ path('blog_new') }}">Ajouter un nouvel article</a>
-        <a class="nav-users" href="{{ url("admin_login_index") }}">Liste des utilisateurs</a>
-        <a class="nav-users" href="{{ url("video_index") }}">Liste des vidéos</a>
-        <a class="nav-logout" href="{{ url("logout") }}">Se déconnecter</a>
-    </div>
-
-    <table class="table">
-        <thead>
+    <div class="container-fluid">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2">Liste des articles</h1>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
@@ -24,26 +20,31 @@
                 <th>Date de publication</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for blog in blogs %}
+          </thead>
+          <tbody>
+          {% for blog in blogs %}
             <tr>
                 <td>{{ blog.id }}</td>
                 <td>{{ blog.title }}</td>
-                <td><img src="/{{ blog.image }}" class="img-fluid"></td>
+                <td><img src="/{{ blog.image }}" class="img-fluid table-img"></td>
                 <td>{{ blog.content | raw | slice (0, 50) }}...</td>
                 <td>{{ blog.publicationDate ? blog.publicationDate|date('d/m/Y H:i:s') : '' }}</td>
                 <td>
-                    <a href="{{ path('blog_show', {'id': blog.id}) }}">Afficher</a>
-                    <a href="{{ path('blog_edit', {'id': blog.id}) }}">Éditer</a>
+                    <a class="btn btn-primary my-1" href="{{ path('blog_show', {'id': blog.id}) }}">Afficher</a>
+                    <a class="btn btn-primary my-1" href="{{ path('blog_edit', {'id': blog.id}) }}">Éditer</a>
                 </td>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Aucune entrée</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucune entrée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+      
+    </main>
+  </div>
+</div> {# end container-fluid #}
 
 {% endblock %}

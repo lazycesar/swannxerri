@@ -3,9 +3,16 @@
 {% block title %}Nouvel article{% endblock %}
 
 {% block body %}
-    <h1>Ajout d'un nouvel article</h1>
+
+<div class="container-fluid">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2">Ajout d'un nouvel article</h1>
+      </div>
 
     {{ include('blog/_form.html.twig') }}
 
-    <a href="{{ path('blog_index') }}">Retour à la liste</a>
+
+        </main>
+</div> {# end container-fluid #}
 {% endblock %}
