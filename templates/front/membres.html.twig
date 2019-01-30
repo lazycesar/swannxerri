@@ -17,7 +17,7 @@
                     {{ video.video | raw }}
                     <p>Ajoutée le {{ video.datePublication ? video.datepublication|date('d/m/Y H:i') : "" }}</p>
                     <h3 class="post-title">{{ video.title }}</h3>    
-                    <p>{{ video.description }}</p>                
+                    <strong>{{ video.description }}</strong>                
                     <p>Durée : {{ video.length }}</p>
                 </article>
             {% endfor %}
