@@ -20,7 +20,7 @@ class ContactFormType extends AbstractType
             ->add('nom', TextType::class, ["label" => "Nom", "attr" => ["placeholder" => "Entrez votre nom"]])
             ->add('email', TextType::class, ["label" => "Email", "attr" => ["placeholder" => "Entrez votre adresse email"]])
             ->add('objet', ChoiceType::class, ["choices" => ["Informations coaching personnel" => "Perso", "Informations coaching professionnel" => "Pro", "Informations conférences" => "Conférence", "Autre demande" => "Autre"]])
-            ->add('contenu', TextareaType::class, ["label" => "Message", "attr" => ["placeholder" => "Quel est votre message ?"]])
+            ->add('contenu', TextareaType::class, ["label" => "Message", "attr" => ["placeholder" => "Quel est votre message ?", "rows" => "8" ]])
             ->add('captchaCode', SimpleCaptchaType::class, array(
                 'captchaStyleName' => 'ExampleCaptcha'
             ));
