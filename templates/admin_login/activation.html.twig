@@ -3,18 +3,30 @@
 {% block title %}ACTIVATION{% endblock %}
 
 {% block body %}
-    <h1>FORMULAIRE D'ACTIVATION DE COMPTE</h1>
-    <form method="POST">
-        <input type="email" name="email" value="{{ email }}">
-        <input type="text" name="cleActivation" value="{{ cleActivation }}">
-        <button type="submit">ACTIVER MON COMPTE</button>
-        
-        <!-- JE DEMANDE UN TOKEN DE SECURITY CONTRE CSRF -->
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        <div>
-            {{ messageConfirmation ?? "" }}
+{% block header %}{% endblock header %}
+{% block dashboard %}{% endblock dashboard %}
+<div class="container">
+    <main role="main" class="col">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h1 class="h2 h2-swann">Formulaire d'activation de compte</h1>
         </div>
-    </form>
+
+        <form method="POST">
+            <label for="email">Votre email</label>
+            <input class="form-control mb-2" type="email" name="email" value="{{ email }}">
+            <label for="cleActivation">Votre clé d'activation</label>
+            <input class="form-control mb-2" type="text" name="cleActivation" value="{{ cleActivation }}">
+            <button class="btn btn-primary" type="submit">Activer mon compte</button>
+            
+            <!-- JE DEMANDE UN TOKEN DE SECURITY CONTRE CSRF -->
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div>
+                {{ messageConfirmation ?? "" }}
+            </div>
+        </form>
+
+        </main>
+</div> {# end container-fluid #}
 
     <script>window.setTimeout(function(){
         window.location.href = "http://127.0.0.1:8000/membres/";

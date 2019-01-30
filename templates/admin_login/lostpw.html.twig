@@ -3,13 +3,20 @@
 {% block title %}Mot de passe oublié{% endblock %}
 
 {% block body %}
-    <h1>Vous avez oublié votre mot de passe ?</h1>
-    <p>Entrez votre adresse email. Si votre compte existe, vous recevrez un email qui vous permettra de réinitialiser votre mot de passe.</p>
+{% block header %}{% endblock header %}
+{% block dashboard %}{% endblock dashboard %}
 
+
+<div class="container">
+    <main role="main" class="col">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h1 class="h2 h2-swann">Vous avez oublié votre mot de passe ?</h1>
+</div>
+        <p>Entrez votre adresse email. Si votre compte existe, vous recevrez un email qui vous permettra de réinitialiser votre mot de passe.</p>
     <form method="POST">
 
         <input type="email" name="email">
-        <button type="submit">Envoyer</button>
+        <button class="btn btn-primary" type="submit">Envoyer</button>
         <div>{{ messageConfirmation ?? "" }}</div>
 
         {% if messageConfirmation %}
@@ -26,4 +33,7 @@
         {# <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"> #}
         
     </form>
+
+            </main>
+</div> {# end container-fluid #}
 {% endblock %}

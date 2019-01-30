@@ -3,9 +3,19 @@
 {% block title %}Message envoyé !{% endblock %}
 
 {% block body %}
-    <h1>Votre message a bien été envoyé !</h1>
+{% block header %}{% endblock header %}
+{% block dashboard %}{% endblock dashboard %}
+
+<div class="container">
+    <main role="main" class="col">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h1 class="h2 h2-swann">Votre message a bien été envoyé !</h1>
+        </div>
     <p>Vous en recevrez la copie par email.</p>
     <p>Vous allez être redirigé vers la page d'accueil.</p>
+    
+    </main>
+</div> {# end container-fluid #}
 
 <script>
     window.setTimeout(function(){

@@ -3,36 +3,46 @@
 {% block title %}Nouveau mot de passe{% endblock %}
 
 {% block body %}
-    <h1>Formulaire de création d'un nouveau mot de passe.</h1>
-    
-    <form method="POST">
+{% block header %}{% endblock header %}
+{% block dashboard %}{% endblock dashboard %}
 
-        <label for="email">Votre email</label>
-        <input type="email" name="email" value="{{ email }}"><br>
-        <label for="cleActivation">Votre clé d'activation</label>
-        <input type="text" name="cleActivation" value="{{ cleActivation }}"><br>
-        <label for="password">Entrez votre nouveau mot de passe</label>
-        <input id="password" type="password" name="password" placeholder="8 caractères minimum"><br>
-        <label for="password">Confirmez votre nouveau mot de passe</label>
-        <input id="password-confirm" type="password" name="password-confirm" placeholder="8 caractères minimum"><br>
-        <input type="hidden" name="token" value="{token}">
 
-        <button type="submit">Envoyer</button>
-        <div>{{ messageConfirmation }}</div>
+<div class="container">
+    <main role="main" class="col">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+            <h1 class="h2 h2-swann">Formulaire de création d'un nouveau mot de passe.</h1>
+        </div>
+   
+            <form method="POST">
+                <div class="form-group">
+                <label for="email">Votre email</label>
+                <input class="form-control" type="email" name="email" value="{{ email }}"><br>
+                <label for="cleActivation">Votre clé d'activation</label>
+                <input class="form-control" type="text" name="cleActivation" value="{{ cleActivation }}"><br>
+                <label for="password">Entrez votre nouveau mot de passe</label>
+                <input class="form-control" id="password" type="password" name="password" placeholder="8 caractères minimum"><br>
+                <label for="password">Confirmez votre nouveau mot de passe</label>
+                <input class="form-control" id="password-confirm" type="password" name="password-confirm" placeholder="8 caractères minimum"><br>
+                <input class="form-control" type="hidden" name="token" value="{token}">
 
-        {% if messageConfirmation %}
-    <script>
-        function redirect() {
-            window.setTimeout(function(){
-        window.location.href = "http://127.0.0.1:8000/membres/"
-    }, 3000)
-        }
-        document.querySelector("form").addEventListener("submit", redirect());
-    </script>
-    {% endif %}
-    
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-        
-    </form>
+                <button class="btn btn-primary" type="submit">Envoyer</button>
+                <div>{{ messageConfirmation }}</div>
 
+                {% if messageConfirmation %}
+                <script>
+                    function redirect() {
+                        window.setTimeout(function(){
+                    window.location.href = "http://127.0.0.1:8000/membres/"
+                }, 3000)
+                    }
+                    document.querySelector("form").addEventListener("submit", redirect());
+                </script>
+            {% endif %}
+            
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+               </div> 
+            </form>
+
+            </main>
+</div> {# end container-fluid #}
 {% endblock %}

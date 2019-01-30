@@ -268,10 +268,11 @@ Cover
   align-items: center;
 }
 .cover__caption h1 {
-  border-bottom: 4px solid var(--white);
+  /* border-bottom: 4px solid var(--white); */
   /* font-size: 2rem; */
   display: inline-block;
   margin-bottom: 1rem;
+  line-height: 5rem;
 }
 
 .cover__caption {
@@ -859,7 +860,7 @@ Single: Generale
 }
 .content-left__text,
 .content-right__text {
-  width: 91%;
+  width: 85%;
 }
 .content-right {
   display: flex;
