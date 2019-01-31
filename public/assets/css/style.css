@@ -660,6 +660,7 @@ Banner
 .banner__text h2 {
   border: none;
   margin: 1rem 0;
+  text-align: right;
 }
 
 /*-----------------------------
@@ -1051,6 +1052,7 @@ Single: About-Page
 }
 .banner-about {
   background-image: url("/assets/img/cta-about.jpg");
+  background-position: 50% 38%;
 }
 
 .cta.cta-about h1 {
@@ -1136,6 +1138,7 @@ Smartphone
   }
   .header__menu__item {
     display: block;
+    margin: 0.1rem;
   }
   .is-open {
     height: 300px;
@@ -1184,6 +1187,7 @@ Smartphone
   /* Video */
   .card-video {
     margin: 0.5rem 0;
+    width: 100%;
   }
   /* Coaching */
   .coaching__copy {
