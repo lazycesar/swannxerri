@@ -285,7 +285,7 @@ class AdminLoginController extends AbstractController
     }
 
     /**
-     * @Route("/index/{id}", name=" admin_login_delete ", methods={" DELETE "})
+     * @Route("/index/{id}", name="admin_login_delete", methods={" DELETE "})
      */
     public function delete(Request $request, AdminLogin $adminLogin) : Response
     {
